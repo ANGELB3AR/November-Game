@@ -408,7 +408,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2044592060007588315, guid: 11d6f311ebb48634e886fc8f5b9fac4e, type: 3}
       propertyPath: <FreeLookMovementSpeed>k__BackingField
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7291357759982509345, guid: 11d6f311ebb48634e886fc8f5b9fac4e, type: 3}
       propertyPath: m_IsActive
