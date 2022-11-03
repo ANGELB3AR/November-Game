@@ -17,7 +17,7 @@ public class PlayerFreeLookState : PlayerBaseState
         movement.x = stateMachine.InputReader.MovementValue.x;
         movement.y = 0;
         movement.z = stateMachine.InputReader.MovementValue.y;
-        stateMachine.transform.Translate(movement * deltaTime);
+        stateMachine.Controller.Move(movement * deltaTime * stateMachine.FreeLookMovementSpeed);
     }
 
     public override void Exit()
