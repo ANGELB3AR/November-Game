@@ -8,7 +8,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
-        
+        stateMachine.InputReader.JumpEvent += OnJump;
     }
 
     public override void Tick(float deltaTime)
@@ -18,6 +18,11 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Exit()
     {
-        
+        stateMachine.InputReader.JumpEvent -= OnJump;
+    }
+
+    void OnJump()
+    {
+        stateMachine.SwitchState(new PlayerJumpState(stateMachine));
     }
 }
