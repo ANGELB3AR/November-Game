@@ -23,8 +23,7 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        movement = CalculateMovement();
-        stateMachine.Controller.Move(movement * deltaTime * stateMachine.TargetingMovementSpeed);
+        Move(CalculateMovement(), stateMachine.TargetingMovementSpeed, deltaTime);
         UpdateAnimator(deltaTime);
     }
 
@@ -36,13 +35,6 @@ public class PlayerTargetingState : PlayerBaseState
     void OnCancel()
     {
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
-    }
-
-    Vector3 CalculateMovement()
-    {
-        movement += stateMachine.transform.right * stateMachine.InputReader.MovementValue.x;
-        movement += stateMachine.transform.forward * stateMachine.InputReader.MovementValue.y;
-        return movement;
     }
 
     void UpdateAnimator(float deltaTime)

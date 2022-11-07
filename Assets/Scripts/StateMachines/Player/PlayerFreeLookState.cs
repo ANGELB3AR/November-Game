@@ -22,8 +22,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        Vector3 movement = CalculateMovement();
-        stateMachine.Controller.Move(movement * deltaTime * stateMachine.FreeLookMovementSpeed);
+        Move(CalculateMovement(), stateMachine.FreeLookMovementSpeed, deltaTime);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero) 
         {
@@ -31,7 +30,7 @@ public class PlayerFreeLookState : PlayerBaseState
             return;
         }
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1, 0.1f, deltaTime);
-        stateMachine.transform.rotation = Quaternion.LookRotation(movement);
+        stateMachine.transform.rotation = Quaternion.LookRotation(CalculateMovement());
     }
 
     public override void Exit()
@@ -43,21 +42,6 @@ public class PlayerFreeLookState : PlayerBaseState
     void OnJump()
     {
         stateMachine.SwitchState(new PlayerJumpState(stateMachine));
-    }
-
-    Vector3 CalculateMovement()
-    {
-        Vector3 forward = stateMachine.MainCameraTransform.forward;
-        Vector3 right = stateMachine.MainCameraTransform.right;
-
-        forward.y = 0f;
-        right.y = 0f;
-
-        forward.Normalize();
-        right.Normalize();
-
-        return forward * stateMachine.InputReader.MovementValue.y 
-            + right * stateMachine.InputReader.MovementValue.x;
     }
 
     void OnTarget()
