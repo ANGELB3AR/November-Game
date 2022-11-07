@@ -24,6 +24,7 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         movement = CalculateMovement();
+        stateMachine.Controller.Move(movement * deltaTime * stateMachine.TargetingMovementSpeed);
         UpdateAnimator(deltaTime);
     }
 
