@@ -49,7 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 5101429304421845981}
   <Controller>k__BackingField: {fileID: 5101429304421845970}
+  <Animator>k__BackingField: {fileID: 5159353757702122117}
   <FreeLookMovementSpeed>k__BackingField: 10
+  <FreeLookSpeed>k__BackingField: 0
 --- !u!114 &5101429304421845981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,10 +477,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95241917264262668, guid: 3adba260ff8a6f2499717379844ac47b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2715384cb3531f8408c604a4d196b2d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adba260ff8a6f2499717379844ac47b, type: 3}
 --- !u!4 &5099711351508379249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4005077195242232, guid: 3adba260ff8a6f2499717379844ac47b, type: 3}
+  m_PrefabInstance: {fileID: 5101429305887038601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5159353757702122117 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95241917264262668, guid: 3adba260ff8a6f2499717379844ac47b, type: 3}
   m_PrefabInstance: {fileID: 5101429305887038601}
   m_PrefabAsset: {fileID: 0}
