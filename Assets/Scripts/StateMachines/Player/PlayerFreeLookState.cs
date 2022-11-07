@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class PlayerFreeLookState : PlayerBaseState
 {
+    readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
     readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
+
+    const float crossFadeDuration = 0.1f;
 
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
@@ -13,6 +16,8 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.TargetEvent += OnTarget;
+
+        stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, crossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
