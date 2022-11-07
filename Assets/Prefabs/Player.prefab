@@ -151,7 +151,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313081743}
-  m_LocalRotation: {x: 0.0372657, y: -0.000000017357246, z: 6.472795e-10, w: 0.9993054}
+  m_LocalRotation: {x: 0.0372657, y: -0.000000017194433, z: 6.4120803e-10, w: 0.9993054}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817274745}
-  m_LocalRotation: {x: 0.07354082, y: 0.0000000019785904, z: -1.459024e-10, w: 0.9972922}
+  m_LocalRotation: {x: 0.07354082, y: -0.0000000042899484, z: 3.1634295e-10, w: 0.9972922}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992683028}
-  m_LocalRotation: {x: 0.055388417, y: -0.0000000037195718, z: 2.0633795e-10, w: 0.9984649}
+  m_LocalRotation: {x: 0.055388413, y: 6.8172917e-19, z: -3.1581772e-18, w: 0.9984649}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -814,6 +814,7 @@ GameObject:
   - component: {fileID: 5101429304421845980}
   - component: {fileID: 5101429304421845981}
   - component: {fileID: 5101429304421845970}
+  - component: {fileID: 8706796235119006782}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -853,6 +854,7 @@ MonoBehaviour:
   <InputReader>k__BackingField: {fileID: 5101429304421845981}
   <Controller>k__BackingField: {fileID: 5101429304421845970}
   <Animator>k__BackingField: {fileID: 5159353757702122117}
+  <Targeter>k__BackingField: {fileID: 8706796235119006782}
   <MainCameraTransform>k__BackingField: {fileID: 0}
   <FreeLookMovementSpeed>k__BackingField: 10
   <TargetingMovementSpeed>k__BackingField: 5
@@ -886,6 +888,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.88, z: 0}
+--- !u!114 &8706796235119006782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101429304421845968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ba34c2c72d06b4ab812f6228a04bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5772250612030695480
 PrefabInstance:
   m_ObjectHideFlags: 0
