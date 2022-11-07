@@ -7,6 +7,7 @@ using System;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public event Action JumpEvent;
+    public event Action TargetEvent;
 
     public Vector2 MovementValue { get; private set; }
 
@@ -35,8 +36,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         MovementValue = context.ReadValue<Vector2>();
     }
 
-    public void OnLook(InputAction.CallbackContext context)
+    public void OnLook(InputAction.CallbackContext context) { }
+
+    public void OnTarget(InputAction.CallbackContext context)
     {
-        
+        if (!context.performed) { return; }
+        TargetEvent?.Invoke();
     }
 }

@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PlayerFreeLookState : PlayerBaseState
 {
-    readonly int freeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
+    readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
 
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
         stateMachine.InputReader.JumpEvent += OnJump;
+        stateMachine.InputReader.TargetEvent += OnTarget;
     }
 
     public override void Tick(float deltaTime)
@@ -21,16 +22,17 @@ public class PlayerFreeLookState : PlayerBaseState
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero) 
         {
-            stateMachine.Animator.SetFloat(freeLookSpeedHash, 0, 0.1f, deltaTime);
+            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0, 0.1f, deltaTime);
             return;
         }
-        stateMachine.Animator.SetFloat(freeLookSpeedHash, 1, 0.1f, deltaTime);
+        stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1, 0.1f, deltaTime);
         stateMachine.transform.rotation = Quaternion.LookRotation(movement);
     }
 
     public override void Exit()
     {
         stateMachine.InputReader.JumpEvent -= OnJump;
+        stateMachine.InputReader.TargetEvent -= OnTarget;
     }
 
     void OnJump()
@@ -51,5 +53,10 @@ public class PlayerFreeLookState : PlayerBaseState
 
         return forward * stateMachine.InputReader.MovementValue.y 
             + right * stateMachine.InputReader.MovementValue.x;
+    }
+
+    void OnTarget()
+    {
+        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
 }
