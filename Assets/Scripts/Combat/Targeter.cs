@@ -22,6 +22,7 @@ public class Targeter : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
+        Debug.Log("Trigger detected");
         targets.Add(target);
         target.OnDestroyed += RemoveTarget;
     }
@@ -38,7 +39,7 @@ public class Targeter : MonoBehaviour
         targets.Remove(target);
     }
 
-    public bool SelectTarget()
+    public bool SelectCenterTarget()
     {
         if (targets.Count == 0) { return false; }
 
@@ -69,9 +70,9 @@ public class Targeter : MonoBehaviour
         return true;
     }
 
-    void SortTargets()
+    public void SortTargets()
     {
-        List<Target> sortedTargets = targets.OrderBy(gameObject =>
+        sortedTargets = targets.OrderBy(gameObject =>
         {
             Vector3 targetDirection = gameObject.transform.position - Camera.main.transform.position;
             var cameraForward = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.z);

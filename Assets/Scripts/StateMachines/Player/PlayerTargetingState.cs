@@ -19,6 +19,9 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.TargetEvent += OnCancel;
 
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, crossFadeDuration);
+
+        stateMachine.Targeter.SortTargets();
+        stateMachine.Targeter.SelectCenterTarget();
     }
 
     public override void Tick(float deltaTime)
