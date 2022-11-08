@@ -77,11 +77,8 @@ public class Targeter : MonoBehaviour
     {
         sortedTargets = targets.OrderBy(gameObject =>
         {
-            Vector3 targetDirection = gameObject.transform.position - Camera.main.transform.position;
-            var cameraForward = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.z);
-            var targetDir = new Vector2(targetDirection.x, targetDirection.z);
-            float angle = Vector2.Angle(cameraForward, targetDir);
-            return angle;
+            Vector3 position = mainCamera.WorldToViewportPoint(gameObject.transform.position);
+            return position.x;
         }).ToList();
     }
 
