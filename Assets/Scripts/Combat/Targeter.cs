@@ -13,6 +13,9 @@ public class Targeter : MonoBehaviour
     Camera mainCamera;
     int currentIndex;
 
+    const float targetCameraWeight = 1f;
+    const float targetCameraRadius = 2f;
+
     public Target CurrentTarget { get; private set; }
 
     void Awake()
@@ -93,7 +96,7 @@ public class Targeter : MonoBehaviour
         targetGroup.RemoveMember(CurrentTarget.transform);
         currentIndex--;
         CurrentTarget = sortedTargets[currentIndex];
-        targetGroup.AddMember(CurrentTarget.transform, 1, 2);
+        targetGroup.AddMember(CurrentTarget.transform, targetCameraWeight, targetCameraRadius);
     }
 
     public void CycleTargetRight()
@@ -102,6 +105,6 @@ public class Targeter : MonoBehaviour
         targetGroup.RemoveMember(CurrentTarget.transform);
         currentIndex++;
         CurrentTarget = sortedTargets[currentIndex];
-        targetGroup.AddMember(CurrentTarget.transform, 1, 2);
+        targetGroup.AddMember(CurrentTarget.transform, targetCameraWeight, targetCameraRadius);
     }
 }
