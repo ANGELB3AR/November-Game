@@ -101,7 +101,7 @@ public class Targeter : MonoBehaviour
 
     public void CycleTargetRight()
     {
-        if (currentIndex == sortedTargets.Count) { return; }
+        if (currentIndex == sortedTargets.Count - 1) { return; }
         targetGroup.RemoveMember(CurrentTarget.transform);
         currentIndex++;
         CurrentTarget = sortedTargets[currentIndex];
