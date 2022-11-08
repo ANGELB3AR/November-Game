@@ -35,4 +35,35 @@ public class Targeter : MonoBehaviour
         target.OnDestroyed -= RemoveTarget;
         targets.Remove(target);
     }
+
+    public bool SelectTarget()
+    {
+        if (targets.Count == 0) { return false; }
+
+        Target closestTarget = null;
+        float closestTargetDistance = Mathf.Infinity;
+
+        foreach (Target target in targets)
+        {
+            Vector2 viewPosition = mainCamera.WorldToViewportPoint(target.transform.position);
+
+            if (!target.GetComponentInChildren<Renderer>().isVisible)
+            {
+                continue;
+            }
+
+            Vector2 toCenter = viewPosition - new Vector2(0.5f, 0.5f);
+            if (toCenter.sqrMagnitude < closestTargetDistance)
+            {
+                closestTarget = target;
+                closestTargetDistance = toCenter.sqrMagnitude;
+            }
+        }
+
+        if (closestTarget == null) { return false; }
+
+        CurrentTarget = closestTarget;
+        targetGroup.AddMember(CurrentTarget.transform, 1, 2);
+        return true;
+    }
 }
