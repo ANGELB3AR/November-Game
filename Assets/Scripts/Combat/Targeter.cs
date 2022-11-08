@@ -11,6 +11,7 @@ public class Targeter : MonoBehaviour
     List<Target> targets = new List<Target>();
     List<Target> sortedTargets;
     Camera mainCamera;
+    int currentIndex;
 
     public Target CurrentTarget { get; private set; }
 
@@ -24,12 +25,14 @@ public class Targeter : MonoBehaviour
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
         targets.Add(target);
         target.OnDestroyed += RemoveTarget;
+        SortTargets();
     }
 
     void OnTriggerExit(Collider other)
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
         RemoveTarget(target);
+        SortTargets();
     }
 
     void RemoveTarget(Target target)
@@ -66,10 +69,11 @@ public class Targeter : MonoBehaviour
 
         CurrentTarget = closestTarget;
         targetGroup.AddMember(CurrentTarget.transform, 1, 2);
+        FindCurrentIndex(CurrentTarget);
         return true;
     }
 
-    public void SortTargets()
+    void SortTargets()
     {
         sortedTargets = targets.OrderBy(gameObject =>
         {
@@ -79,5 +83,28 @@ public class Targeter : MonoBehaviour
             float angle = Vector2.Angle(cameraForward, targetDir);
             return angle;
         }).ToList();
+    }
+
+    void FindCurrentIndex(Target currentTarget)
+    {
+        currentIndex = sortedTargets.IndexOf(currentTarget);
+    }
+
+    public void CycleTargetLeft()
+    {
+        if (currentIndex == 0) { return; }
+        targetGroup.RemoveMember(CurrentTarget.transform);
+        currentIndex--;
+        CurrentTarget = sortedTargets[currentIndex];
+        targetGroup.AddMember(CurrentTarget.transform, 1, 2);
+    }
+
+    public void CycleTargetRight()
+    {
+        if (currentIndex == sortedTargets.Count) { return; }
+        targetGroup.RemoveMember(CurrentTarget.transform);
+        currentIndex++;
+        CurrentTarget = sortedTargets[currentIndex];
+        targetGroup.AddMember(CurrentTarget.transform, 1, 2);
     }
 }

@@ -22,7 +22,6 @@ public class PlayerTargetingState : PlayerBaseState
 
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, crossFadeDuration);
 
-        stateMachine.Targeter.SortTargets();
         stateMachine.Targeter.SelectCenterTarget();
     }
 
@@ -69,11 +68,11 @@ public class PlayerTargetingState : PlayerBaseState
 
     void OnCycleTargetLeft()
     {
-
+        stateMachine.Targeter.CycleTargetLeft();
     }
 
     void OnCycleTargetRight()
     {
-
+        stateMachine.Targeter.CycleTargetRight();
     }
 }
