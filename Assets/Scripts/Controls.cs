@@ -62,6 +62,24 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CycleTargetLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""c399840f-8741-41f6-91c0-eedb1d59026c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CycleTargetRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a6ec5d0-2a1e-4470-918e-03670cff9a0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +214,50 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Target"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca84e447-1737-4623-aa19-27167865343e"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""CycleTargetLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c560750-7a49-4c61-a6af-a1bb291e93dc"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CycleTargetLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96ffe7f6-c8ca-4c77-81eb-8df567a7b0d5"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""CycleTargetRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aeb826c3-8474-49f0-9153-b52324b11399"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CycleTargetRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -231,6 +293,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
+        m_Player_CycleTargetLeft = m_Player.FindAction("CycleTargetLeft", throwIfNotFound: true);
+        m_Player_CycleTargetRight = m_Player.FindAction("CycleTargetRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -294,6 +358,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Target;
+    private readonly InputAction m_Player_CycleTargetLeft;
+    private readonly InputAction m_Player_CycleTargetRight;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -302,6 +368,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Target => m_Wrapper.m_Player_Target;
+        public InputAction @CycleTargetLeft => m_Wrapper.m_Player_CycleTargetLeft;
+        public InputAction @CycleTargetRight => m_Wrapper.m_Player_CycleTargetRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -323,6 +391,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Target.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
                 @Target.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
                 @Target.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
+                @CycleTargetLeft.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetLeft;
+                @CycleTargetLeft.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetLeft;
+                @CycleTargetLeft.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetLeft;
+                @CycleTargetRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetRight;
+                @CycleTargetRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetRight;
+                @CycleTargetRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetRight;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -339,6 +413,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Target.started += instance.OnTarget;
                 @Target.performed += instance.OnTarget;
                 @Target.canceled += instance.OnTarget;
+                @CycleTargetLeft.started += instance.OnCycleTargetLeft;
+                @CycleTargetLeft.performed += instance.OnCycleTargetLeft;
+                @CycleTargetLeft.canceled += instance.OnCycleTargetLeft;
+                @CycleTargetRight.started += instance.OnCycleTargetRight;
+                @CycleTargetRight.performed += instance.OnCycleTargetRight;
+                @CycleTargetRight.canceled += instance.OnCycleTargetRight;
             }
         }
     }
@@ -367,5 +447,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnTarget(InputAction.CallbackContext context);
+        void OnCycleTargetLeft(InputAction.CallbackContext context);
+        void OnCycleTargetRight(InputAction.CallbackContext context);
     }
 }
