@@ -22,7 +22,6 @@ public class Targeter : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
-        Debug.Log("Trigger detected");
         targets.Add(target);
         target.OnDestroyed += RemoveTarget;
     }
