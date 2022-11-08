@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Targeter : MonoBehaviour
@@ -8,6 +9,7 @@ public class Targeter : MonoBehaviour
     [SerializeField] CinemachineTargetGroup targetGroup;
 
     List<Target> targets = new List<Target>();
+    List<Target> sortedTargets;
     Camera mainCamera;
 
     public Target CurrentTarget { get; private set; }
@@ -65,5 +67,17 @@ public class Targeter : MonoBehaviour
         CurrentTarget = closestTarget;
         targetGroup.AddMember(CurrentTarget.transform, 1, 2);
         return true;
+    }
+
+    void SortTargets()
+    {
+        List<Target> sortedTargets = targets.OrderBy(gameObject =>
+        {
+            Vector3 targetDirection = gameObject.transform.position - Camera.main.transform.position;
+            var cameraForward = new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.z);
+            var targetDir = new Vector2(targetDirection.x, targetDirection.z);
+            float angle = Vector2.Angle(cameraForward, targetDir);
+            return angle;
+        }).ToList();
     }
 }
