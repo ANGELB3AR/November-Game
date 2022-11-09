@@ -16,6 +16,8 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Enter()
     {
+        Debug.Log("Targeting State");
+
         stateMachine.InputReader.TargetEvent += OnCancel;
         stateMachine.InputReader.CycleTargetLeftEvent += OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent += OnCycleTargetRight;
@@ -23,7 +25,7 @@ public class PlayerTargetingState : PlayerBaseState
 
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, crossFadeDuration);
 
-        stateMachine.Targeter.SelectCenterTarget();
+        stateMachine.Targeter.SelectClosestTarget();
     }
 
     public override void Tick(float deltaTime)
@@ -39,6 +41,8 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.CycleTargetLeftEvent -= OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent -= OnCycleTargetRight;
         stateMachine.InputReader.AttackEvent -= OnAttack;
+
+        stateMachine.Targeter.Cancel();
     }
 
     void OnCancel()

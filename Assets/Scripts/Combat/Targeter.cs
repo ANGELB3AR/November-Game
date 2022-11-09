@@ -44,7 +44,7 @@ public class Targeter : MonoBehaviour
         targets.Remove(target);
     }
 
-    public bool SelectCenterTarget()
+    public bool SelectClosestTarget()
     {
         if (targets.Count == 0) { return false; }
 
@@ -106,5 +106,12 @@ public class Targeter : MonoBehaviour
         currentIndex++;
         CurrentTarget = sortedTargets[currentIndex];
         targetGroup.AddMember(CurrentTarget.transform, targetCameraWeight, targetCameraRadius);
+    }
+
+    public void Cancel()
+    {
+        targetGroup.RemoveMember(CurrentTarget.transform);
+        CurrentTarget = null;
+        sortedTargets.Clear();
     }
 }
