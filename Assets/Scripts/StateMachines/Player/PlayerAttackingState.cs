@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerAttackingState : PlayerBaseState
 {
-    public PlayerAttackingState(PlayerStateMachine stateMachine) : base(stateMachine)
+    Attack attack;
+
+    public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
+        attack = stateMachine.Attacks[attackIndex];
     }
 
     public override void Enter()
