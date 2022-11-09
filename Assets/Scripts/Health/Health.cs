@@ -13,11 +13,12 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void DealDamage(float damage)
     {
         if (currentHealth == 0) { return; }
 
         currentHealth = Mathf.Max(currentHealth - damage, 0);
+        Debug.Log(currentHealth);
     }
 
     public void Heal(float healAmount)
