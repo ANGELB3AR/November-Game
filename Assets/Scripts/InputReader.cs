@@ -6,7 +6,6 @@ using System;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
-    public event Action JumpEvent;
     public event Action TargetEvent;
     public event Action CycleTargetLeftEvent;
     public event Action CycleTargetRightEvent;
@@ -26,12 +25,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     void OnDestroy()
     {
         controls.Player.Disable();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (!context.performed) { return; }
-        JumpEvent?.Invoke();
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -16,7 +16,6 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         Debug.Log("Free Look State");
 
-        stateMachine.InputReader.JumpEvent += OnJump;
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.AttackEvent += OnAttack;
 
@@ -38,16 +37,10 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Exit()
     {
-        stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.AttackEvent -= OnAttack;
 
         Debug.Log("Exiting free look state");
-    }
-
-    void OnJump()
-    {
-        stateMachine.SwitchState(new PlayerJumpState(stateMachine));
     }
 
     void OnTarget()
