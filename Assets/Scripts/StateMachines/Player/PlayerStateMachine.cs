@@ -16,6 +16,7 @@ public class PlayerStateMachine : StateMachine
     // Variable References
     [field:SerializeField] public float FreeLookMovementSpeed { get; private set; }
     [field:SerializeField] public float TargetingMovementSpeed { get; private set; }
+    [field:SerializeField] public Attack[] Attacks { get; private set; }
 
     void Awake()
     {
