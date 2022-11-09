@@ -10353,6 +10353,7 @@ Transform:
   - {fileID: 1639761596377552069}
   - {fileID: 1639737886487334375}
   - {fileID: 1639723920018014227}
+  - {fileID: 3890383317204183565}
   m_Father: {fileID: 1647878292375333617}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37330,7 +37331,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645336284660115859}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   m_Controller: {fileID: 9100000, guid: 2715384cb3531f8408c604a4d196b2d3, type: 2}
   m_CullingMode: 1
@@ -70780,6 +70781,52 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.3931961, y: -59.217793, z: -7.7185364}
     m_Extent: {x: 33.038452, y: 63.681774, z: 14.877377}
   m_DirtyAABB: 0
+--- !u!1 &1836666410658175545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4081184115482638493}
+  - component: {fileID: 8141434804873547507}
+  m_Layer: 0
+  m_Name: SwordHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4081184115482638493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836666410658175545}
+  m_LocalRotation: {x: -0.08563304, y: -0.0000000037252907, z: 4.656625e-10, w: 0.99632674}
+  m_LocalPosition: {x: 9.5, y: -5.6, z: -59.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3890383317204183565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -9.825, y: 0, z: 0}
+--- !u!136 &8141434804873547507
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836666410658175545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 14.1
+  m_Height: 109.6
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2416531647352792521
 GameObject:
   m_ObjectHideFlags: 0
@@ -70870,3 +70917,110 @@ Transform:
   m_Father: {fileID: 1648026287369997897}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6599880647864002443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3890383317204183565}
+  m_Layer: 0
+  m_Name: SwordSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3890383317204183565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599880647864002443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4081184115482638493}
+  - {fileID: 7875221731012264306}
+  m_Father: {fileID: 1648085531868128747}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7306579515067763427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3890383317204183565}
+    m_Modifications:
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.636786
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6940055
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08262326
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.43646577
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5062771
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4856442
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.56332123
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 173.961
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.903
+      objectReference: {fileID: 0}
+    - target: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -81.481995
+      objectReference: {fileID: 0}
+    - target: {fileID: 592680162340106091, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+      propertyPath: m_Name
+      value: TestSword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+--- !u!4 &7875221731012264306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 588923905225182097, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
+  m_PrefabInstance: {fileID: 7306579515067763427}
+  m_PrefabAsset: {fileID: 0}
