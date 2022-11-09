@@ -19,6 +19,7 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.TargetEvent += OnCancel;
         stateMachine.InputReader.CycleTargetLeftEvent += OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent += OnCycleTargetRight;
+        stateMachine.InputReader.AttackEvent += OnAttack;
 
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, crossFadeDuration);
 
@@ -37,6 +38,7 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.TargetEvent -= OnCancel;
         stateMachine.InputReader.CycleTargetLeftEvent -= OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent -= OnCycleTargetRight;
+        stateMachine.InputReader.AttackEvent -= OnAttack;
     }
 
     void OnCancel()
@@ -89,5 +91,10 @@ public class PlayerTargetingState : PlayerBaseState
     void OnCycleTargetRight()
     {
         stateMachine.Targeter.CycleTargetRight();
+    }
+
+    void OnAttack()
+    {
+        stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
     }
 }
