@@ -47,12 +47,12 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.CycleTargetLeftEvent -= OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent -= OnCycleTargetRight;
         stateMachine.InputReader.AttackEvent -= OnAttack;
-
-        stateMachine.Targeter.Cancel();
     }
 
     void OnCancel()
     {
+        stateMachine.Targeter.Cancel();
+
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
     }
 
