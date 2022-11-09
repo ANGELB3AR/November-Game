@@ -26,6 +26,11 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, crossFadeDuration);
 
         stateMachine.Targeter.SelectClosestTarget();
+
+        if (stateMachine.Targeter.CurrentTarget == null)
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        }
     }
 
     public override void Tick(float deltaTime)
@@ -33,6 +38,7 @@ public class PlayerTargetingState : PlayerBaseState
         Move(CalculateMovement(), stateMachine.TargetingMovementSpeed, deltaTime);
         UpdateAnimator(deltaTime);
         FaceTarget();
+        
     }
 
     public override void Exit()

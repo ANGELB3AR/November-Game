@@ -110,8 +110,11 @@ public class Targeter : MonoBehaviour
 
     public void Cancel()
     {
-        targetGroup.RemoveMember(CurrentTarget.transform);
-        CurrentTarget = null;
-        sortedTargets.Clear();
+        if (CurrentTarget != null)
+        {
+            targetGroup.RemoveMember(CurrentTarget.transform);
+            CurrentTarget = null;
+            sortedTargets.Clear();
+        }
     }
 }
