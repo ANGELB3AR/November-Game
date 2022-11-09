@@ -39,8 +39,6 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.AttackEvent -= OnAttack;
-
-        Debug.Log("Exiting free look state");
     }
 
     void OnTarget()
