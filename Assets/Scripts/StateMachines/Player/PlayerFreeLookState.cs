@@ -41,6 +41,8 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.InputReader.JumpEvent -= OnJump;
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.AttackEvent -= OnAttack;
+
+        Debug.Log("Exiting free look state");
     }
 
     void OnJump()
