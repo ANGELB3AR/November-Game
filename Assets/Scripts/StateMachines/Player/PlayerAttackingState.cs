@@ -20,7 +20,10 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        
+        if (GetNormalizedTime() >= 1f)
+        {
+            ReturnToLocomotion();
+        }
     }
 
     public override void Exit()
@@ -57,5 +60,17 @@ public class PlayerAttackingState : PlayerBaseState
     void OnAttack()
     {
         TryComboAttack(GetNormalizedTime());
+    }
+
+    void ReturnToLocomotion()
+    {
+        if (stateMachine.Targeter.CurrentTarget != null)
+        {
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+        }
+        else
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        }
     }
 }
