@@ -6,6 +6,7 @@ public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] GameObject swordHitbox;
 
+    // All methods are called by Animation Events
     public void EnableSwordHitbox()
     {
         swordHitbox.SetActive(true);
