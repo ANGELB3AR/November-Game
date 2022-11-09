@@ -80,6 +80,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""21fecead-dccb-4031-8417-1489a1a4dc24"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""CycleTargetRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d4290f0-cab1-43f0-a1f2-c19190a14252"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11c3afe1-f2d1-4813-aa40-20bdce3ab357"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -295,6 +326,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
         m_Player_CycleTargetLeft = m_Player.FindAction("CycleTargetLeft", throwIfNotFound: true);
         m_Player_CycleTargetRight = m_Player.FindAction("CycleTargetRight", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -360,6 +392,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Target;
     private readonly InputAction m_Player_CycleTargetLeft;
     private readonly InputAction m_Player_CycleTargetRight;
+    private readonly InputAction m_Player_Attack;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -370,6 +403,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Target => m_Wrapper.m_Player_Target;
         public InputAction @CycleTargetLeft => m_Wrapper.m_Player_CycleTargetLeft;
         public InputAction @CycleTargetRight => m_Wrapper.m_Player_CycleTargetRight;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,6 +431,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @CycleTargetRight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetRight;
                 @CycleTargetRight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetRight;
                 @CycleTargetRight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCycleTargetRight;
+                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -419,6 +456,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @CycleTargetRight.started += instance.OnCycleTargetRight;
                 @CycleTargetRight.performed += instance.OnCycleTargetRight;
                 @CycleTargetRight.canceled += instance.OnCycleTargetRight;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -449,5 +489,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnTarget(InputAction.CallbackContext context);
         void OnCycleTargetLeft(InputAction.CallbackContext context);
         void OnCycleTargetRight(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

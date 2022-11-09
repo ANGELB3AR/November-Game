@@ -10,6 +10,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action TargetEvent;
     public event Action CycleTargetLeftEvent;
     public event Action CycleTargetRightEvent;
+    public event Action AttackEvent;
 
     public Vector2 MovementValue { get; private set; }
 
@@ -56,5 +57,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
         CycleTargetRightEvent?.Invoke();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        AttackEvent?.Invoke();
     }
 }
