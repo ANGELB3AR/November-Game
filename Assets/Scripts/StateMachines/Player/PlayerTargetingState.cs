@@ -29,6 +29,7 @@ public class PlayerTargetingState : PlayerBaseState
     {
         Move(CalculateMovement(), stateMachine.TargetingMovementSpeed, deltaTime);
         UpdateAnimator(deltaTime);
+        FaceTarget();
     }
 
     public override void Exit()
@@ -64,6 +65,20 @@ public class PlayerTargetingState : PlayerBaseState
             float value = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
             stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
         }
+    }
+
+    void FaceTarget()
+    {
+        Target target = stateMachine.Targeter.CurrentTarget;
+
+        if (target == null)
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        }
+
+        Vector3 lookDirection = target.transform.position - stateMachine.transform.position;
+        lookDirection.y = 0f;
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 
     void OnCycleTargetLeft()
