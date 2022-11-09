@@ -13,6 +13,8 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.InputReader.AttackEvent += OnAttack;
+
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }
 
@@ -23,7 +25,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Exit()
     {
-        
+        stateMachine.InputReader.AttackEvent -= OnAttack;
     }
 
     float GetNormalizedTime()
@@ -50,5 +52,10 @@ public class PlayerAttackingState : PlayerBaseState
         if (normalizedTime < attack.ComboAttackTime) { return; }
 
         stateMachine.SwitchState(new PlayerAttackingState(stateMachine, attack.ComboIndex));
+    }
+
+    void OnAttack()
+    {
+        TryComboAttack(GetNormalizedTime());
     }
 }
