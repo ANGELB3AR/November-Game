@@ -70781,6 +70781,52 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.3931961, y: -59.217793, z: -7.7185364}
     m_Extent: {x: 33.038452, y: 63.681774, z: 14.877377}
   m_DirtyAABB: 0
+--- !u!1 &1836666410658175545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4081184115482638493}
+  - component: {fileID: 8141434804873547507}
+  m_Layer: 0
+  m_Name: SwordHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4081184115482638493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836666410658175545}
+  m_LocalRotation: {x: -0.08563304, y: -0.0000000037252907, z: 4.656625e-10, w: 0.99632674}
+  m_LocalPosition: {x: 9.5, y: -5.6, z: -59.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3890383317204183565}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -9.825, y: 0, z: 0}
+--- !u!136 &8141434804873547507
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836666410658175545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 14.1
+  m_Height: 109.6
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2416531647352792521
 GameObject:
   m_ObjectHideFlags: 0
@@ -70881,7 +70927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3890383317204183565}
   m_Layer: 0
-  m_Name: WeaponSlot
+  m_Name: SwordSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70900,6 +70946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7875221731012264306}
+  - {fileID: 4081184115482638493}
   m_Father: {fileID: 1648085531868128747}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
