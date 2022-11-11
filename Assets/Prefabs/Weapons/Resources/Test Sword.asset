@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Test Sword
   m_EditorClassIdentifier: 
   weaponClass: 0
-  baseDamage: 0
-  percentageBonusDamage: 0
+  baseDamage: 15
+  percentageBonusDamage: 2
