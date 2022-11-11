@@ -18,8 +18,34 @@ public class WeaponDamage : MonoBehaviour
         }
     }
 
-    public void SetAttack(float damage)
+    float GetAdditiveModifiers()
     {
-        this.damage = damage;
+        float total = 0;
+        foreach (IDamageModifier modifier in GetComponents<IDamageModifier>())
+        {
+            foreach (float damage in modifier.GetAdditiveModifiers())
+            {
+                total += damage;
+            }
+        }
+        return total;
+    }
+
+    float GetPercentageModifiers()
+    {
+        float total = 0;
+        foreach (IDamageModifier modifier in GetComponents<IDamageModifier>())
+        {
+            foreach (float damage in modifier.GetAdditiveModifiers())
+            {
+                total += damage;
+            }
+        }
+        return total;
+    }
+
+    public float GetDamage()
+    {
+        return GetAdditiveModifiers() * (1 + GetPercentageModifiers() / 100);
     }
 }
