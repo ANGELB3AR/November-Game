@@ -19,6 +19,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public float FreeLookMovementSpeed { get; private set; }
     [field:SerializeField] public float TargetingMovementSpeed { get; private set; }
     [field:SerializeField] public Attack[] Attacks { get; private set; }
+    [field:SerializeField] public AttackCombos Combos { get; private set; }
 
     void Awake()
     {
