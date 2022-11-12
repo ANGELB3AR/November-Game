@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Test Sword
   m_EditorClassIdentifier: 
   weaponClass: 0
+  weaponPrefab: {fileID: 592680162340106091, guid: 4bf0635b8a5e88f4da5ee94cffc1b124, type: 3}
   baseDamage: 15
   percentageBonusDamage: 2

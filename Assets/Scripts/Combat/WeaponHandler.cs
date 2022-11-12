@@ -4,12 +4,36 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
-    [field:SerializeField] public Weapon CurrentWeapon { get; private set; }
+    [field:SerializeField] public WeaponConfig CurrentWeapon { get; private set; }
     [field:SerializeField] public WeaponDamage WeaponDamage { get; private set; }
     [field:SerializeField] public WeaponHitbox WeaponSlot { get; private set; }
+    [SerializeField] Transform swordTransform;
+    [SerializeField] Transform spearTransform;
+    [SerializeField] Transform heavyTransform;
 
-    public float GetDamage()
+
+    void Start()
     {
-        return WeaponDamage.GetDamage();
+        EquipWeapon(CurrentWeapon);
+    }
+
+    void EquipWeapon(WeaponConfig weapon)
+    {
+        Instantiate(weapon.weaponPrefab, SelectWeaponTransform(weapon));
+    }
+
+    Transform SelectWeaponTransform(WeaponConfig weapon)
+    {
+        switch(weapon.weaponClass)
+        {
+            case WeaponConfig.WeaponClass.Sword:
+                return swordTransform;
+            case WeaponConfig.WeaponClass.Spear:
+                return spearTransform;
+            case WeaponConfig.WeaponClass.Heavy:
+                return heavyTransform;
+            default:
+                return null;
+        }
     }
 }

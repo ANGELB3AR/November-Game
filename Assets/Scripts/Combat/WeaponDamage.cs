@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour
 {
-    private void Start()
-    {
-        print(GetDamage());
-    }
     public float GetDamage()
     {
         return GetAdditiveModifiers() * (1 + GetPercentageModifiers() / 100);
@@ -16,7 +12,7 @@ public class WeaponDamage : MonoBehaviour
     float GetAdditiveModifiers()
     {
         float total = 0;
-        foreach (IDamageModifier modifier in GetComponents<IDamageModifier>())
+        foreach (IDamageModifier modifier in GetComponentsInChildren<IDamageModifier>())
         {
             foreach (float damage in modifier.GetAdditiveModifiers())
             {
@@ -29,7 +25,7 @@ public class WeaponDamage : MonoBehaviour
     float GetPercentageModifiers()
     {
         float total = 0;
-        foreach (IDamageModifier modifier in GetComponents<IDamageModifier>())
+        foreach (IDamageModifier modifier in GetComponentsInChildren<IDamageModifier>())
         {
             foreach (float damage in modifier.GetAdditiveModifiers())
             {

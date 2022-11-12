@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewWeapon", menuName = "Weapons/Create New Weapon")]
-public class Weapon : ScriptableObject, IDamageModifier
+public class Weapon : MonoBehaviour, IDamageModifier
 {
-    public WeaponClass weaponClass;
-    public float baseDamage;
-    public float percentageBonusDamage;
+    [SerializeField] WeaponConfig weaponSO;
+
+    float baseDamage;
+    float percentageBonusDamage;
+
+    private void Awake()
+    {
+        baseDamage = weaponSO.baseDamage;
+        percentageBonusDamage = weaponSO.percentageBonusDamage;
+    }
 
     public IEnumerable<float> GetAdditiveModifiers()
     {
@@ -17,12 +23,5 @@ public class Weapon : ScriptableObject, IDamageModifier
     public IEnumerable<float> GetPercentageModifiers()
     {
         yield return percentageBonusDamage;
-    }
-
-    public enum WeaponClass
-    {
-        Sword,
-        Spear,
-        Heavy
     }
 }

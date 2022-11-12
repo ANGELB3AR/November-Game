@@ -19,7 +19,7 @@ public class WeaponHitbox : MonoBehaviour
         if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(weaponDamage.GetDamage());
-            Debug.Log("Weapon hit");
+            Debug.Log($"Weapon hit with {weaponDamage.GetDamage()} damage");
         }
     }
 
