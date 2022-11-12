@@ -151,7 +151,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313081743}
-  m_LocalRotation: {x: 0.0372657, y: 0.000000015904698, z: -5.931117e-10, w: 0.9993054}
+  m_LocalRotation: {x: 0.037265696, y: 0.000000017612116, z: -6.5678407e-10, w: 0.9993054}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817274745}
-  m_LocalRotation: {x: 0.07354082, y: -0.0000000049648383, z: 3.6610967e-10, w: 0.9972922}
+  m_LocalRotation: {x: 0.07354082, y: -0.000000004289946, z: 3.1634279e-10, w: 0.9972922}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992683028}
-  m_LocalRotation: {x: 0.055388417, y: 0.000000003719572, z: -2.0633796e-10, w: 0.9984649}
+  m_LocalRotation: {x: 0.055388413, y: -6.8172917e-19, z: 3.1581772e-18, w: 0.9984649}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1127,14 +1127,20 @@ MonoBehaviour:
   <TargetingMovementSpeed>k__BackingField: 5
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: SwordAttack1
+    <baseDamage>k__BackingField: 0
+    <percentageBonusDamage>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
   - <AnimationName>k__BackingField: SwordAttack2
+    <baseDamage>k__BackingField: 0
+    <percentageBonusDamage>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
   - <AnimationName>k__BackingField: SwordAttack3
+    <baseDamage>k__BackingField: 0
+    <percentageBonusDamage>k__BackingField: 10
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0
     <ComboIndex>k__BackingField: -1

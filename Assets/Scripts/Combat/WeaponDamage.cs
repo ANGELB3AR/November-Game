@@ -19,6 +19,7 @@ public class WeaponDamage : MonoBehaviour
                 total += damage;
             }
         }
+
         return total;
     }
 
@@ -32,6 +33,7 @@ public class WeaponDamage : MonoBehaviour
                 total += damage;
             }
         }
+
         return total;
     }
 }
