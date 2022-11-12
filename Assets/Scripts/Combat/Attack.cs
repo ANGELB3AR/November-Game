@@ -9,5 +9,4 @@ public class Attack
     [field:SerializeField] public float TransitionDuration { get; private set; }
     [field:SerializeField] public float ComboAttackTime { get; private set; }
     [field:SerializeField] public int ComboIndex { get; private set; } = -1;
-    [field:SerializeField] public float Damage { get; private set; }
 }
