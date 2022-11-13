@@ -9,11 +9,12 @@ public class WeaponConfig : ScriptableObject
     public GameObject weaponPrefab;
     public float baseDamage;
     public float percentageBonusDamage;
-
-    public enum WeaponClass
-    {
-        Sword,
-        Spear,
-        Heavy
-    }
 }
+
+public enum WeaponClass
+{
+    Sword,
+    Spear,
+    Heavy
+}
+

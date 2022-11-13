@@ -8,7 +8,18 @@ public class PlayerAttackingState : PlayerBaseState
 
     public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
-        attack = stateMachine.Attacks[attackIndex];
+       if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Sword)
+        {
+            attack = stateMachine.SwordCombo[attackIndex];
+        }
+       else if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Spear)
+        {
+            attack = stateMachine.SpearCombo[attackIndex];
+        }
+       else if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Heavy)
+        {
+            attack = stateMachine.HeavyCombo[attackIndex];
+        }
     }
 
     public override void Enter()

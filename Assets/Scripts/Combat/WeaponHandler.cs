@@ -26,11 +26,11 @@ public class WeaponHandler : MonoBehaviour
     {
         switch(weapon.weaponClass)
         {
-            case WeaponConfig.WeaponClass.Sword:
+            case WeaponClass.Sword:
                 return swordTransform;
-            case WeaponConfig.WeaponClass.Spear:
+            case WeaponClass.Spear:
                 return spearTransform;
-            case WeaponConfig.WeaponClass.Heavy:
+            case WeaponClass.Heavy:
                 return heavyTransform;
             default:
                 return null;
