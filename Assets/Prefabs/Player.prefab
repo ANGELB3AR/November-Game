@@ -151,7 +151,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313081743}
-  m_LocalRotation: {x: 0.0372657, y: 0.000000017194433, z: -6.4120803e-10, w: 0.9993054}
+  m_LocalRotation: {x: 0.037265696, y: -0.00000001778336, z: 6.6316996e-10, w: 0.9993054}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817274745}
-  m_LocalRotation: {x: 0.07354082, y: 0.000000004289948, z: -3.1634292e-10, w: 0.9972922}
+  m_LocalRotation: {x: 0.07354082, y: -0.000000004751888, z: 3.504066e-10, w: 0.9972922}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992683028}
-  m_LocalRotation: {x: 0.055388417, y: -0.0000000037195718, z: 2.0633795e-10, w: 0.9984649}
+  m_LocalRotation: {x: 0.055388413, y: -6.8172917e-19, z: 3.1581772e-18, w: 0.9984649}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -845,8 +845,8 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 14.1
-  m_Height: 109.6
-  m_Direction: 2
+  m_Height: 56.75
+  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &636972943867194589
 GameObject:
@@ -962,8 +962,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 14.1
-  m_Height: 109.6
+  m_Radius: 9.6
+  m_Height: 78.24
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1282977655043512338
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdbf5b58623cd648a4aa224ddbf8da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: 262da35ab06cb4545aaa7fd601411866, type: 2}
+  <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: f8a00091df1f9194abd61b50e1604f6a, type: 2}
   <WeaponDamage>k__BackingField: {fileID: 6429357762548498125}
   <WeaponSlot>k__BackingField: {fileID: 1009718678864146609}
   swordTransform: {fileID: 5570341070054748433}
