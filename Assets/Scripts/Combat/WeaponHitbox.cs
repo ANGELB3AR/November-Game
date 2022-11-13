@@ -33,4 +33,24 @@ public class WeaponHitbox : MonoBehaviour
     {
         swordHitbox.SetActive(false);
     }
+
+    public void EnableSpearHitbox()
+    {
+        spearHitbox.SetActive(true);
+    }
+
+    public void DisableSpearHitbox()
+    {
+        spearHitbox.SetActive(false);
+    }
+    public void EnableHeavyHitbox()
+    {
+        heavyHitbox.SetActive(true);
+    }
+
+    public void DisableHeavyHitbox()
+    {
+        heavyHitbox.SetActive(false);
+    }
+
 }

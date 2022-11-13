@@ -45140,4 +45140,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.16666667
+    functionName: EnableHeavyHitbox
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 66e4d0445ac8764439594de7a00b0d03, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.93333334
+    functionName: DisableHeavyHitbox
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 66e4d0445ac8764439594de7a00b0d03, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
