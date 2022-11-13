@@ -6,7 +6,7 @@ public class WeaponHandler : MonoBehaviour
 {
     [field:SerializeField] public WeaponConfig CurrentWeapon { get; private set; }
     [field:SerializeField] public WeaponDamage WeaponDamage { get; private set; }
-    [field:SerializeField] public WeaponHitbox WeaponSlot { get; private set; }
+    [field:SerializeField] public WeaponHitbox WeaponHitbox { get; private set; }
     [SerializeField] Transform swordTransform;
     [SerializeField] Transform spearTransform;
     [SerializeField] Transform heavyTransform;
@@ -35,5 +35,10 @@ public class WeaponHandler : MonoBehaviour
             default:
                 return null;
         }
+    }
+
+    public void DisableWeaponColliders()
+    {
+        WeaponHitbox.DisableAllColliders();
     }
 }

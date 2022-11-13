@@ -42,6 +42,8 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.AttackEvent -= OnAttack;
+
+        stateMachine.Weapon.DisableWeaponColliders();
     }
 
     float GetNormalizedTime()

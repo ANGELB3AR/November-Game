@@ -23,6 +23,13 @@ public class WeaponHitbox : MonoBehaviour
         }
     }
 
+    public void DisableAllColliders()
+    {
+        swordHitbox.SetActive(false);
+        spearHitbox.SetActive(false);
+        heavyHitbox.SetActive(false);
+    }
+
     // All methods below are called by Animation Events
     public void EnableSwordHitbox()
     {
