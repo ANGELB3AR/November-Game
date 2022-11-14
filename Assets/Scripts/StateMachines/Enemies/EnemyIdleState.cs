@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState : MonoBehaviour
+public class EnemyIdleState : EnemyBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyIdleState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+
+    public override void Enter()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Tick(float deltaTime)
+    {
+        
+    }
+
+    public override void Exit()
     {
         
     }
