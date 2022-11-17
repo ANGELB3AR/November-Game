@@ -45,7 +45,7 @@ public class EnemyChasingState : EnemyBaseState
 
     void MoveToPlayer(float deltaTime)
     {
-        stateMachine.Agent.SetDestination(stateMachine.FieldOfView.GetPlayer().transform.position);
+        stateMachine.Agent.SetDestination(stateMachine.Player.transform.position);
         stateMachine.Controller.Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed * deltaTime);
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
@@ -53,9 +53,7 @@ public class EnemyChasingState : EnemyBaseState
 
     void FacePlayer()
     {
-        if (!stateMachine.FieldOfView.CanSeePlayer()) { return; }
-
-        Vector3 lookDirection = stateMachine.FieldOfView.GetPlayer().transform.position - stateMachine.transform.position;
+        Vector3 lookDirection = stateMachine.Player.transform.position - stateMachine.transform.position;
         lookDirection.y = 0f;
 
         stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);

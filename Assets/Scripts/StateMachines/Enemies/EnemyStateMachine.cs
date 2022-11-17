@@ -14,8 +14,16 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public Health Health { get; private set; }
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
 
+    // External References
+    [field:SerializeField] public PlayerStateMachine Player { get; private set; }
+
     // Variable References
     [field:SerializeField] public float MovementSpeed { get; private set; }
+
+    void Awake()
+    {
+        Player = FieldOfView.GetPlayer();
+    }
 
     void Start()
     {
