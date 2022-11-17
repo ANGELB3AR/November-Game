@@ -12,6 +12,8 @@ public class EnemyIdlingState : EnemyBaseState
 
     public override void Enter()
     {
+        Debug.Log("Enemy Idling State");
+
         stateMachine.Animator.CrossFadeInFixedTime(idleHash, crossFadeDuration);
     }
 

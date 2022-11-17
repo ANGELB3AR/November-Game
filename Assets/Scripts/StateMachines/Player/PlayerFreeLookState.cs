@@ -14,8 +14,6 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Enter()
     {
-        Debug.Log("Free Look State");
-
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.AttackEvent += OnAttack;
 

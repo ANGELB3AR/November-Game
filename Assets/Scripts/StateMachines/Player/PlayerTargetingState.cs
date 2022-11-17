@@ -16,8 +16,6 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Enter()
     {
-        Debug.Log("Targeting State");
-
         stateMachine.InputReader.TargetEvent += OnCancel;
         stateMachine.InputReader.CycleTargetLeftEvent += OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent += OnCycleTargetRight;
