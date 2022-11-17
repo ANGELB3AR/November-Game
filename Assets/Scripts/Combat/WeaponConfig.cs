@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponConfig : ScriptableObject
 {
     public WeaponClass weaponClass;
-    public GameObject weaponPrefab;
+    public Weapon weaponPrefab;
     public float baseDamage;
     public float percentageBonusDamage;
 }
