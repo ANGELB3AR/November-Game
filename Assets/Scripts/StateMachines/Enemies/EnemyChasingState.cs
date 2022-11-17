@@ -20,6 +20,7 @@ public class EnemyChasingState : EnemyBaseState
     public override void Tick(float deltaTime)
     {
         MoveToPlayer(deltaTime);
+        FacePlayer();
 
         if (!stateMachine.FieldOfView.CanSeePlayer())
         {
@@ -48,5 +49,15 @@ public class EnemyChasingState : EnemyBaseState
         stateMachine.Controller.Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed * deltaTime);
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
+    }
+
+    void FacePlayer()
+    {
+        if (!stateMachine.FieldOfView.CanSeePlayer()) { return; }
+
+        Vector3 lookDirection = stateMachine.FieldOfView.GetPlayer().transform.position - stateMachine.transform.position;
+        lookDirection.y = 0f;
+
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 }
