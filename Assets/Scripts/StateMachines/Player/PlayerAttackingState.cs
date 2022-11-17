@@ -31,7 +31,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (GetNormalizedTime() >= 1f)
+        if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
             ReturnToLocomotion();
         }
@@ -44,24 +44,6 @@ public class PlayerAttackingState : PlayerBaseState
         stateMachine.Weapon.DisableWeaponColliders();
     }
 
-    float GetNormalizedTime()
-    {
-        AnimatorStateInfo currentInfo = stateMachine.Animator.GetCurrentAnimatorStateInfo(0);
-        AnimatorStateInfo nextInfo = stateMachine.Animator.GetNextAnimatorStateInfo(0);
-
-        if (stateMachine.Animator.IsInTransition(0) && nextInfo.IsTag("Attack"))
-        {
-            return nextInfo.normalizedTime;
-        }
-
-        if (!stateMachine.Animator.IsInTransition(0) && currentInfo.IsTag("Attack"))
-        {
-            return currentInfo.normalizedTime;
-        }
-
-        return 0f;
-    }
-
     void TryComboAttack(float normalizedTime)
     {
         if (attack.ComboIndex == -1) { return; }
@@ -72,7 +54,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     void OnAttack()
     {
-        TryComboAttack(GetNormalizedTime());
+        TryComboAttack(GetNormalizedTime(stateMachine.Animator));
     }
 
     void ReturnToLocomotion()

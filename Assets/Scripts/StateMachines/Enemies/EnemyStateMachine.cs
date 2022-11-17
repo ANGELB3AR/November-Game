@@ -19,6 +19,7 @@ public class EnemyStateMachine : StateMachine
 
     // Variable References
     [field:SerializeField] public float MovementSpeed { get; private set; }
+    [field:SerializeField] public float AttackRange { get; private set; }
 
     void Awake()
     {

@@ -58,7 +58,9 @@ MonoBehaviour:
   <FieldOfView>k__BackingField: {fileID: 555373582}
   <Health>k__BackingField: {fileID: 7173509130001809294}
   <Weapon>k__BackingField: {fileID: 9131614506703196596}
-  <MovementSpeed>k__BackingField: 0
+  <Player>k__BackingField: {fileID: 0}
+  <MovementSpeed>k__BackingField: 5
+  <AttackRange>k__BackingField: 2
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0
@@ -166,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23bb789e0d9eae48b5ff42ad36c44e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 7
-  angle: 100
+  radius: 10
+  angle: 185
   targetMask:
     serializedVersion: 2
     m_Bits: 64
