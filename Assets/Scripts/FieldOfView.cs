@@ -68,4 +68,24 @@ public class FieldOfView : MonoBehaviour
             canSeePlayer = false;
         }
     }
+
+    public bool CanSeePlayer()
+    {
+        return canSeePlayer;
+    }
+
+    public float GetRadius()
+    {
+        return radius;
+    }
+
+    public float GetAngle()
+    {
+        return angle;
+    }
+
+    public PlayerStateMachine GetPlayer()
+    {
+        return player;
+    }
 }
