@@ -5,40 +5,23 @@ using UnityEngine;
 public class WeaponHandler : MonoBehaviour
 {
     [field:SerializeField] public WeaponConfig CurrentWeapon { get; private set; }
-    [field:SerializeField] public WeaponDamage WeaponDamage { get; private set; }
-    [field:SerializeField] public WeaponHitbox WeaponHitbox { get; private set; }
-    [SerializeField] Transform swordTransform;
-    [SerializeField] Transform spearTransform;
-    [SerializeField] Transform heavyTransform;
+    [field:SerializeField] public Weapon EquippedPrefab { get; private set; }
 
+    [SerializeField] Transform weaponTransform;
 
     void Start()
     {
         EquipWeapon(CurrentWeapon);
     }
 
-    void EquipWeapon(WeaponConfig weapon)
+    public void EquipWeapon(WeaponConfig weapon)
     {
-        Instantiate(weapon.weaponPrefab, SelectWeaponTransform(weapon));
-    }
-
-    Transform SelectWeaponTransform(WeaponConfig weapon)
-    {
-        switch(weapon.weaponClass)
-        {
-            case WeaponClass.Sword:
-                return swordTransform;
-            case WeaponClass.Spear:
-                return spearTransform;
-            case WeaponClass.Heavy:
-                return heavyTransform;
-            default:
-                return null;
-        }
+        Instantiate(CurrentWeapon.weaponPrefab, weaponTransform);
+        EquippedPrefab = CurrentWeapon.weaponPrefab;
     }
 
     public void DisableWeaponColliders()
     {
-        WeaponHitbox.DisableAllColliders();
+        EquippedPrefab.DisableHitbox();
     }
 }

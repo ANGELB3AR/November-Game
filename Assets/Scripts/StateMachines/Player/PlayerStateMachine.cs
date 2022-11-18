@@ -11,6 +11,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public Targeter Targeter { get; private set; }
     [field:SerializeField] public Health Health { get; private set; }
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
+    [field:SerializeField] public DamageCounter Damage { get; private set; }
 
     // External References
     [field:SerializeField] public Transform MainCameraTransform { get; private set; }

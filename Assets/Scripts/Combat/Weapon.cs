@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IDamageModifier
+public class Weapon : MonoBehaviour
 {
-    [SerializeField] WeaponConfig weaponSO;
+    [SerializeField] DamageCounter damageCounter;
+    [SerializeField] GameObject hitbox;
+    [SerializeField] Collider myCollider;
 
-    float baseDamage;
-    float percentageBonusDamage;
-
-    private void Awake()
+    void OnTriggerEnter(Collider other)
     {
-        baseDamage = weaponSO.baseDamage;
-        percentageBonusDamage = weaponSO.percentageBonusDamage;
+        if (other == myCollider) { return; }
+
+        if (other.TryGetComponent<Health>(out Health health))
+        {
+            health.DealDamage(damageCounter.GetDamage());
+            Debug.Log($"Weapon hit with {damageCounter.GetDamage()} damage");
+        }
     }
 
-    public IEnumerable<float> GetAdditiveModifiers()
+    // All methods below are called by Animation Events
+    public void EnableHitbox()
     {
-        yield return baseDamage;
+        hitbox.SetActive(true);
     }
 
-    public IEnumerable<float> GetPercentageModifiers()
+    public void DisableHitbox()
     {
-        yield return percentageBonusDamage;
+        hitbox.SetActive(false);
     }
 }
