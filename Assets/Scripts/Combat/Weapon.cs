@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CapsuleCollider))]
 public class Weapon : MonoBehaviour
 {
     [SerializeField] DamageCounter damageCounter;
-    [SerializeField] GameObject hitbox;
+    [SerializeField] CapsuleCollider hitbox;
     [SerializeField] Collider myCollider;
+
+    void Start()
+    {
+        damageCounter = GetComponentInParent<DamageCounter>();
+        myCollider = GetComponentInParent<CharacterController>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -22,11 +29,11 @@ public class Weapon : MonoBehaviour
     // All methods below are called by Animation Events
     public void EnableHitbox()
     {
-        hitbox.SetActive(true);
+        hitbox.enabled = true;
     }
 
     public void DisableHitbox()
     {
-        hitbox.SetActive(false);
+        hitbox.enabled = false;
     }
 }
