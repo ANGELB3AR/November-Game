@@ -29,7 +29,6 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    // All methods below are called by Animation Events
     public void EnableHitbox()
     {
         hitbox.enabled = true;

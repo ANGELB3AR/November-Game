@@ -17,7 +17,7 @@ public class WeaponHandler : MonoBehaviour
     public void EquipWeapon(WeaponConfig weapon)
     {
         Instantiate(CurrentWeapon.weaponPrefab, weaponTransform);
-        EquippedPrefab = CurrentWeapon.weaponPrefab;
+        EquippedPrefab = GetComponentInChildren<Weapon>();
     }
 
     public void EnableWeaponColliders()

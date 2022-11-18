@@ -37298,6 +37298,7 @@ GameObject:
   - component: {fileID: 1694078800057828029}
   - component: {fileID: 1644040045126479603}
   - component: {fileID: 1583401738}
+  - component: {fileID: 7875383356734117613}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -38940,6 +38941,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7875383356734117613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645336284660115859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cdbf5b58623cd648a4aa224ddbf8da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: 262da35ab06cb4545aaa7fd601411866, type: 2}
+  <EquippedPrefab>k__BackingField: {fileID: 0}
+  weaponTransform: {fileID: 2114146360469952809}
 --- !u!1 &1645337633224055847
 GameObject:
   m_ObjectHideFlags: 0

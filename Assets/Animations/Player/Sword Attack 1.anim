@@ -38275,16 +38275,16 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: EnableHitbox
+    functionName: EnableWeaponColliders
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 6789b1ab20e33fd4688c844e58e64788, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 7cdbf5b58623cd648a4aa224ddbf8da4, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.9
-    functionName: DisableHitbox
+    functionName: DisableWeaponColliders
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 6789b1ab20e33fd4688c844e58e64788, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 7cdbf5b58623cd648a4aa224ddbf8da4, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
