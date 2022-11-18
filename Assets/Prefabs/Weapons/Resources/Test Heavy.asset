@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test Heavy
   m_EditorClassIdentifier: 
   weaponClass: 2
-  weaponPrefab: {fileID: 7329612048137650683, guid: f8d97746de6254148b5fa30dbdab7d2f, type: 3}
+  weaponPrefab: {fileID: -2281681402504109188, guid: f8d97746de6254148b5fa30dbdab7d2f, type: 3}
   baseDamage: 25
   percentageBonusDamage: 7

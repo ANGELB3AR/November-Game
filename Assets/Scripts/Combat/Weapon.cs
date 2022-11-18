@@ -12,7 +12,10 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         damageCounter = GetComponentInParent<DamageCounter>();
+        hitbox = GetComponent<CapsuleCollider>();
         myCollider = GetComponentInParent<CharacterController>();
+
+        DisableHitbox();
     }
 
     void OnTriggerEnter(Collider other)

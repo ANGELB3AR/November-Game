@@ -20,6 +20,11 @@ public class WeaponHandler : MonoBehaviour
         EquippedPrefab = CurrentWeapon.weaponPrefab;
     }
 
+    public void EnableWeaponColliders()
+    {
+        EquippedPrefab.EnableHitbox();
+    }
+
     public void DisableWeaponColliders()
     {
         EquippedPrefab.DisableHitbox();
