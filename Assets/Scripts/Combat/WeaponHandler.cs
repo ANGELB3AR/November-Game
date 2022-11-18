@@ -18,6 +18,7 @@ public class WeaponHandler : MonoBehaviour
     {
         Instantiate(CurrentWeapon.weaponPrefab, weaponTransform);
         EquippedPrefab = GetComponentInChildren<Weapon>();
+        EquippedPrefab.SetDamageStats(CurrentWeapon.baseDamage, CurrentWeapon.percentageBonusDamage);
     }
 
     public void EnableWeaponColliders()

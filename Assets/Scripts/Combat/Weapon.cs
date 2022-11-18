@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CapsuleCollider))]
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, IDamageModifier
 {
-    [SerializeField] DamageCounter damageCounter;
+    float baseDamage;
+    float percentageBonusDamage;
+
     [SerializeField] CapsuleCollider hitbox;
     [SerializeField] Collider myCollider;
+    
+    DamageCounter damageCounter;
 
     void Start()
     {
@@ -16,6 +20,12 @@ public class Weapon : MonoBehaviour
         myCollider = GetComponentInParent<CharacterController>();
 
         DisableHitbox();
+    }
+
+    public void SetDamageStats(float baseDamage, float percentageBonusDamage)
+    {
+        this.baseDamage = baseDamage;
+        this.percentageBonusDamage = percentageBonusDamage;
     }
 
     void OnTriggerEnter(Collider other)
@@ -27,6 +37,16 @@ public class Weapon : MonoBehaviour
             health.DealDamage(damageCounter.GetDamage());
             Debug.Log($"Weapon hit with {damageCounter.GetDamage()} damage");
         }
+    }
+
+    public IEnumerable<float> GetAdditiveModifiers()
+    {
+        yield return baseDamage;
+    }
+
+    public IEnumerable<float> GetPercentageModifiers()
+    {
+        yield return percentageBonusDamage;
     }
 
     public void EnableHitbox()
