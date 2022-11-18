@@ -75310,16 +75310,16 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.6
-    functionName: EnableSpearHitbox
+    functionName: EnableWeaponColliders
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 66e4d0445ac8764439594de7a00b0d03, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 7cdbf5b58623cd648a4aa224ddbf8da4, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.4333333
-    functionName: DisableSpearHitbox
+    functionName: DisableWeaponColliders
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 66e4d0445ac8764439594de7a00b0d03, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 7cdbf5b58623cd648a4aa224ddbf8da4, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

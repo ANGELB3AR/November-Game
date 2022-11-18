@@ -13,6 +13,7 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public FieldOfView FieldOfView { get; private set; }
     [field:SerializeField] public Health Health { get; private set; }
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
+    [field:SerializeField] public DamageCounter Damage { get; private set; }
 
     // External References
     [field:SerializeField] public PlayerStateMachine Player { get; private set; }
