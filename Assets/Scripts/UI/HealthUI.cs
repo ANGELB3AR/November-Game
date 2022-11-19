@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarUI : MonoBehaviour
+public class HealthUI : MonoBehaviour
 {
     [SerializeField] Slider healthSlider;
 
@@ -23,11 +23,6 @@ public class HealthBarUI : MonoBehaviour
     {
         healthSlider.maxValue = healthComponent.GetMaxHealth();
         healthSlider.value = healthComponent.GetMaxHealth();
-    }
-
-    void LateUpdate()
-    {
-        transform.forward = Camera.main.transform.forward;
     }
 
     void UpdateHealthBar()
