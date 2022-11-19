@@ -10,4 +10,10 @@ public abstract class EnemyBaseState : State
     {
         this.stateMachine = stateMachine;
     }
+
+    public bool InAttackRange()
+    {
+        float distanceToPlayer = Vector3.Distance(stateMachine.Player.transform.position, stateMachine.transform.position);
+        return distanceToPlayer <= stateMachine.AttackRange;
+    }
 }

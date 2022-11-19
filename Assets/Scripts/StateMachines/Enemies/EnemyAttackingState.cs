@@ -4,26 +4,42 @@ using UnityEngine;
 
 public class EnemyAttackingState : EnemyBaseState
 {
-    readonly int attackHash = Animator.StringToHash("SpearStab");
+    Attack attack;
 
-    const float crossFadeDuration = 0.1f;
-
-    public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) 
+    public EnemyAttackingState(EnemyStateMachine stateMachine, int attackIndex) : base(stateMachine) 
     {
-
+        if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Sword)
+        {
+            attack = stateMachine.SwordCombo[attackIndex];
+        }
+        else if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Spear)
+        {
+            attack = stateMachine.SpearCombo[attackIndex];
+        }
+        else if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Heavy)
+        {
+            attack = stateMachine.HeavyCombo[attackIndex];
+        }
     }
 
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(attackHash, crossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }
 
     public override void Tick(float deltaTime)
     {
         if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
-            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+            if (stateMachine.FieldOfView.CanSeePlayer() && InAttackRange())
+            {
+                stateMachine.SwitchState(new EnemyAttackingState(stateMachine, attack.ComboIndex));
+            }
+            else
+            {
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+            }
         }
     }
 

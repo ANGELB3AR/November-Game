@@ -24,7 +24,7 @@ public class EnemyChasingState : EnemyBaseState
 
         if (InAttackRange())
         {
-            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+            stateMachine.SwitchState(new EnemyAttackingState(stateMachine, 0));
         }
 
         if (!stateMachine.FieldOfView.CanSeePlayer())
@@ -62,11 +62,5 @@ public class EnemyChasingState : EnemyBaseState
         lookDirection.y = 0f;
 
         stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
-    }
-
-    bool InAttackRange()
-    {
-        float distanceToPlayer = Vector3.Distance(stateMachine.Player.transform.position, stateMachine.transform.position);
-        return distanceToPlayer <= stateMachine.AttackRange;
     }
 }
