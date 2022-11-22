@@ -22,6 +22,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public Attack[] SwordCombo { get; private set; }
     [field:SerializeField] public Attack[] SpearCombo { get; private set; }
     [field: SerializeField] public Attack[] HeavyCombo { get; private set; }
+    [field:SerializeField] public float ImpactDuration { get; private set; }
 
 
     void Awake()
