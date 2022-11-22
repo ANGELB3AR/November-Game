@@ -29,8 +29,23 @@ public class PlayerStateMachine : StateMachine
         MainCameraTransform = Camera.main.transform;
     }
 
+    void OnEnable()
+    {
+        Health.DamageReceived += InitiateImpact;
+    }
+
     void Start()
     {
         SwitchState(new PlayerFreeLookState(this));
+    }
+
+    void OnDisable()
+    {
+        Health.DamageReceived -= InitiateImpact;
+    }
+
+    void InitiateImpact()
+    {
+        SwitchState(new PlayerImpactState(this));
     }
 }

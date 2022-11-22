@@ -30,11 +30,26 @@ public class EnemyStateMachine : StateMachine
         Player = FieldOfView.GetPlayer();
     }
 
+    void OnEnable()
+    {
+        Health.DamageReceived += InitiateImpact;
+    }
+
     void Start()
     {
         SwitchState(new EnemyIdlingState(this));
 
         Agent.updatePosition = false;
         Agent.updateRotation = false;
+    }
+
+    void OnDisable()
+    {
+        Health.DamageReceived -= InitiateImpact;
+    }
+
+    void InitiateImpact()
+    {
+        SwitchState(new EnemyImpactState(this));
     }
 }
