@@ -60,5 +60,6 @@ public class EnemyStateMachine : StateMachine
     void HandleDeath()
     {
         Ragdoll.ToggleRagdoll(true);
+        GetComponent<Target>().enabled = false;
     }
 }

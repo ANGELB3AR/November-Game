@@ -27,7 +27,7 @@ public class Targeter : MonoBehaviour
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
         targets.Add(target);
-        target.OnDestroyed += RemoveTarget;
+        target.OnDisabled += RemoveTarget;
         SortTargets();
     }
 
@@ -40,8 +40,8 @@ public class Targeter : MonoBehaviour
 
     void RemoveTarget(Target target)
     {
-        target.OnDestroyed -= RemoveTarget;
         targets.Remove(target);
+        target.OnDisabled -= RemoveTarget;
     }
 
     public bool SelectClosestTarget()
