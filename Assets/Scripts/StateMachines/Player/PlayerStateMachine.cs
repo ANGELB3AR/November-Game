@@ -12,6 +12,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public Health Health { get; private set; }
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
     [field:SerializeField] public DamageCounter Damage { get; private set; }
+    [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
 
     // External References
     [field:SerializeField] public Transform MainCameraTransform { get; private set; }
@@ -32,7 +33,8 @@ public class PlayerStateMachine : StateMachine
 
     void OnEnable()
     {
-        Health.OnDamageReceived += InitiateImpact;
+        Health.OnDamageReceived += HandleImpact;
+        Health.OnDeath += HandleDeath;
     }
 
     void Start()
@@ -42,11 +44,17 @@ public class PlayerStateMachine : StateMachine
 
     void OnDisable()
     {
-        Health.OnDamageReceived -= InitiateImpact;
+        Health.OnDamageReceived -= HandleImpact;
+        Health.OnDeath -= HandleDeath;
     }
 
-    void InitiateImpact()
+    void HandleImpact()
     {
         SwitchState(new PlayerImpactState(this));
+    }
+
+    void HandleDeath()
+    {
+        Ragdoll.ToggleRagdoll(true);
     }
 }
