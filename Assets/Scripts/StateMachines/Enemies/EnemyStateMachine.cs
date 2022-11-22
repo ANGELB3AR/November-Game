@@ -35,6 +35,7 @@ public class EnemyStateMachine : StateMachine
     void OnEnable()
     {
         Health.OnDamageReceived += InitiateImpact;
+        Health.OnDeath += HandleDeath;
     }
 
     void Start()
@@ -48,10 +49,16 @@ public class EnemyStateMachine : StateMachine
     void OnDisable()
     {
         Health.OnDamageReceived -= InitiateImpact;
+        Health.OnDeath -= HandleDeath;
     }
 
     void InitiateImpact()
     {
         SwitchState(new EnemyImpactState(this));
+    }
+
+    void HandleDeath()
+    {
+        Ragdoll.ToggleRagdoll(true);
     }
 }
