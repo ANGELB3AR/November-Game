@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
 
         currentHealth = Mathf.Max(currentHealth - damage, 0);
         HealthUpdated?.Invoke();
+        DamageReceived?.Invoke();
     }
 
     public void Heal(float healAmount)
