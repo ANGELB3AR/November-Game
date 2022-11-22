@@ -56,16 +56,4 @@ public class PlayerAttackingState : PlayerBaseState
     {
         TryComboAttack(GetNormalizedTime(stateMachine.Animator));
     }
-
-    void ReturnToLocomotion()
-    {
-        if (stateMachine.Targeter.CurrentTarget != null)
-        {
-            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
-        }
-        else
-        {
-            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
-        }
-    }
 }
