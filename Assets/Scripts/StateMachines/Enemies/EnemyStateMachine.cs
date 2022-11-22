@@ -14,6 +14,7 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public Health Health { get; private set; }
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
     [field:SerializeField] public DamageCounter Damage { get; private set; }
+    [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
 
     // External References
     [field:SerializeField] public PlayerStateMachine Player { get; private set; }
@@ -33,7 +34,7 @@ public class EnemyStateMachine : StateMachine
 
     void OnEnable()
     {
-        Health.DamageReceived += InitiateImpact;
+        Health.OnDamageReceived += InitiateImpact;
     }
 
     void Start()
@@ -46,7 +47,7 @@ public class EnemyStateMachine : StateMachine
 
     void OnDisable()
     {
-        Health.DamageReceived -= InitiateImpact;
+        Health.OnDamageReceived -= InitiateImpact;
     }
 
     void InitiateImpact()

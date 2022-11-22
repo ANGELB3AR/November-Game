@@ -32,7 +32,7 @@ public class PlayerStateMachine : StateMachine
 
     void OnEnable()
     {
-        Health.DamageReceived += InitiateImpact;
+        Health.OnDamageReceived += InitiateImpact;
     }
 
     void Start()
@@ -42,7 +42,7 @@ public class PlayerStateMachine : StateMachine
 
     void OnDisable()
     {
-        Health.DamageReceived -= InitiateImpact;
+        Health.OnDamageReceived -= InitiateImpact;
     }
 
     void InitiateImpact()

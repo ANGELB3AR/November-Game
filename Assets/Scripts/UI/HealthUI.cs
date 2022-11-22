@@ -16,7 +16,7 @@ public class HealthUI : MonoBehaviour
 
     void OnEnable()
     {
-        healthComponent.HealthUpdated += UpdateHealthBar;
+        healthComponent.OnHealthUpdated += UpdateHealthBar;
     }
 
     void Start()

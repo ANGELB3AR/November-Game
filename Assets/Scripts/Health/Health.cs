@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public event Action HealthUpdated;
-    public event Action DamageReceived;
+    public event Action OnHealthUpdated;
+    public event Action OnDamageReceived;
+    public event Action OnDeath;
 
     [SerializeField] float maxHealth = 100f;
 
@@ -22,8 +23,13 @@ public class Health : MonoBehaviour
         if (currentHealth == 0) { return; }
 
         currentHealth = Mathf.Max(currentHealth - damage, 0);
-        HealthUpdated?.Invoke();
-        DamageReceived?.Invoke();
+        OnHealthUpdated?.Invoke();
+        OnDamageReceived?.Invoke();
+
+        if (currentHealth == 0)
+        {
+            OnDeath?.Invoke();
+        }
     }
 
     public void Heal(float healAmount)
@@ -31,7 +37,7 @@ public class Health : MonoBehaviour
         if (currentHealth == 0) { return; }
 
         currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
-        HealthUpdated?.Invoke();
+        OnHealthUpdated?.Invoke();
     }
 
     public float GetCurrentHealth()
