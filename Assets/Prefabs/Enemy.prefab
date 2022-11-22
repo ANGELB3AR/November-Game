@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 5046677470298060593}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,6 +448,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
+  <ImpactDuration>k__BackingField: 1
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0
