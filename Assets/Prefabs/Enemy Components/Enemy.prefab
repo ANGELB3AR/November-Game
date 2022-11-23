@@ -107,7 +107,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
-  <ImpactDuration>k__BackingField: 0.6
+  <ImpactDuration>k__BackingField: 0.8
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0
