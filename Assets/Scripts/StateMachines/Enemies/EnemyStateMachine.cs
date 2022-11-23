@@ -61,5 +61,7 @@ public class EnemyStateMachine : StateMachine
     {
         Ragdoll.ToggleRagdoll(true);
         GetComponent<Target>().enabled = false;
+        Controller.enabled = false;
+        Animator.enabled = false;
     }
 }

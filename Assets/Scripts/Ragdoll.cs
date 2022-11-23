@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Ragdoll : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    [SerializeField] CharacterController controller;
-
     Collider[] allColliders;
     Rigidbody[] allRigidbodies;
 
@@ -37,8 +34,5 @@ public class Ragdoll : MonoBehaviour
                 rigidbody.useGravity = isRagdoll;
             }
         }
-
-        controller.enabled = !isRagdoll;
-        animator.enabled = !isRagdoll;
     }
 }

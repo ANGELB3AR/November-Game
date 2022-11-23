@@ -26,6 +26,8 @@ public class Targeter : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
+        if (targets.Contains(target)) { return; }
+
         targets.Add(target);
         target.OnDisabled += RemoveTarget;
         SortTargets();
@@ -34,19 +36,35 @@ public class Targeter : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (!other.TryGetComponent<Target>(out Target target)) { return; }
+
         RemoveTarget(target);
         SortTargets();
     }
 
     void RemoveTarget(Target target)
     {
+        if (CurrentTarget == target)
+        {
+            targetGroup.RemoveMember(CurrentTarget.transform);
+        }
+
         targets.Remove(target);
         target.OnDisabled -= RemoveTarget;
+
+        if (targets.Count == 0)
+        {
+            Cancel();
+        }
     }
 
     public bool SelectClosestTarget()
     {
         if (targets.Count == 0) { return false; }
+
+        if (CurrentTarget != null)
+        {
+            targetGroup.RemoveMember(CurrentTarget.transform);
+        }
 
         Target closestTarget = null;
         float closestTargetDistance = Mathf.Infinity;
