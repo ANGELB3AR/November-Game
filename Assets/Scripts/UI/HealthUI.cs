@@ -17,6 +17,7 @@ public class HealthUI : MonoBehaviour
     void OnEnable()
     {
         healthComponent.OnHealthUpdated += UpdateHealthBar;
+        healthComponent.OnDeath += HideHealthBar;
     }
 
     void Start()
@@ -25,8 +26,19 @@ public class HealthUI : MonoBehaviour
         healthSlider.value = healthComponent.GetMaxHealth();
     }
 
+    void OnDisable()
+    {
+        healthComponent.OnHealthUpdated -= UpdateHealthBar;
+        healthComponent.OnDeath -= HideHealthBar;
+    }
+
     void UpdateHealthBar()
     {
         healthSlider.value = healthComponent.GetCurrentHealth();
+    }
+
+    void HideHealthBar()
+    {
+        gameObject.SetActive(false);
     }
 }
