@@ -59,6 +59,8 @@ public class EnemyStateMachine : StateMachine
 
     void HandleDeath()
     {
+        SwitchState(new EnemyDeathState(this));
+
         Ragdoll.ToggleRagdoll(true);
         GetComponent<Target>().enabled = false;
         Controller.enabled = false;

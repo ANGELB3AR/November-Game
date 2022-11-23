@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeathState : PlayerBaseState
+public class EnemyDeathState : EnemyBaseState
 {
-    public PlayerDeathState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public EnemyDeathState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() { }
 
