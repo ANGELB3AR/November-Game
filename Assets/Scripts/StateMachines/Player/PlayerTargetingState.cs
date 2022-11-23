@@ -10,7 +10,6 @@ public class PlayerTargetingState : PlayerBaseState
     readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
 
     const float crossFadeDuration = 0.1f;
-    Vector3 movement;
 
     public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 

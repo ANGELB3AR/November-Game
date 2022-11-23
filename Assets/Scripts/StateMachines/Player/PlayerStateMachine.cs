@@ -55,6 +55,8 @@ public class PlayerStateMachine : StateMachine
 
     void HandleDeath()
     {
+        SwitchState(new PlayerDeathState(this));
+
         Ragdoll.ToggleRagdoll(true);
         Controller.enabled = false;
         Animator.enabled = false;
