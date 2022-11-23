@@ -60,5 +60,6 @@ public class PlayerStateMachine : StateMachine
         Ragdoll.ToggleRagdoll(true);
         Controller.enabled = false;
         Animator.enabled = false;
+        Weapon.DropWeapon();
     }
 }

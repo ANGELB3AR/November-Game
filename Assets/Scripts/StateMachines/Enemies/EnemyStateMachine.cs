@@ -65,5 +65,6 @@ public class EnemyStateMachine : StateMachine
         GetComponent<Target>().enabled = false;
         Controller.enabled = false;
         Animator.enabled = false;
+        Weapon.DropWeapon();
     }
 }

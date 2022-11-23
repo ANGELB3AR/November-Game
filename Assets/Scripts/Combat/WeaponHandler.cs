@@ -30,4 +30,13 @@ public class WeaponHandler : MonoBehaviour
     {
         EquippedPrefab.DisableHitbox();
     }
+
+    public void DropWeapon()
+    {
+        Rigidbody rb = EquippedPrefab.GetComponent<Rigidbody>();
+
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        EquippedPrefab.transform.parent = null;
+    }
 }

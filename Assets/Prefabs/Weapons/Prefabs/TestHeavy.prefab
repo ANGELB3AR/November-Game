@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7302800481343688893}
   - component: {fileID: -2281681402504109188}
   - component: {fileID: 4708694625443474140}
+  - component: {fileID: 1531643143092190274}
   m_Layer: 0
   m_Name: TestHeavy
   m_TagString: Untagged
@@ -112,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6789b1ab20e33fd4688c844e58e64788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageCounter: {fileID: 0}
   hitbox: {fileID: 4708694625443474140}
   myCollider: {fileID: 0}
 --- !u!136 &4708694625443474140
@@ -129,3 +129,19 @@ CapsuleCollider:
   m_Height: 0.57
   m_Direction: 2
   m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!54 &1531643143092190274
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329612048137650683}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
