@@ -30,6 +30,7 @@ public class PlayerAttackingState : PlayerBaseState
 
         stateMachine.Weapon.ActivateWeaponTrail(true);
 
+        stateMachine.AudioSource.time = 0.6f;
         stateMachine.AudioSource.PlayOneShot(attack.SoundEffect);
     }
 
