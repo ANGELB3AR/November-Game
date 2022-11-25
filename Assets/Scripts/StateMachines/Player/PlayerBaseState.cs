@@ -30,7 +30,7 @@ public abstract class PlayerBaseState : State
     {
         if (!stateMachine.Controller.isGrounded)
         {
-            direction.y -= 9.8f * deltaTime;
+            direction.y -= stateMachine.Gravity * deltaTime;
         }
 
         stateMachine.Controller.Move(direction * speed * deltaTime);
