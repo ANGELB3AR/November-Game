@@ -51,7 +51,7 @@ public class EnemyChasingState : EnemyBaseState
     void MoveToPlayer(float deltaTime)
     {
         stateMachine.Agent.SetDestination(stateMachine.Player.transform.position);
-        stateMachine.Controller.Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed * deltaTime);
+        Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
     }

@@ -16,4 +16,14 @@ public abstract class EnemyBaseState : State
         float distanceToPlayer = Vector3.Distance(stateMachine.Player.transform.position, stateMachine.transform.position);
         return distanceToPlayer <= stateMachine.AttackRange;
     }
+
+    protected void Move(Vector3 velocity, float speed, float deltaTime)
+    {
+        if (!stateMachine.Controller.isGrounded)
+        {
+            velocity.y -= stateMachine.Gravity * deltaTime;
+        }
+
+        stateMachine.Controller.Move(velocity * speed * deltaTime);
+    }
 }
