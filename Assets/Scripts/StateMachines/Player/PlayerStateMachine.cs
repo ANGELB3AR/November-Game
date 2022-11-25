@@ -13,7 +13,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
     [field:SerializeField] public DamageCounter Damage { get; private set; }
     [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
-    [field:SerializeField] public AudioSource AudioSource { get; private set; }
+    [field:SerializeField] public AudioSource Audio { get; private set; }
 
     // External References
     [field:SerializeField] public Transform MainCameraTransform { get; private set; }
