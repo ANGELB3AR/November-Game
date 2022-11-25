@@ -28,6 +28,11 @@ public abstract class PlayerBaseState : State
 
     protected void Move(Vector3 direction, float speed, float deltaTime)
     {
+        if (!stateMachine.Controller.isGrounded)
+        {
+            direction.y -= 9.8f * deltaTime;
+        }
+
         stateMachine.Controller.Move(direction * speed * deltaTime);
     }
 
