@@ -17,7 +17,7 @@ public class EnemyImpactState : EnemyBaseState
 
         duration = stateMachine.ImpactDuration;
 
-        //stateMachine.Player.Time.SlowTime();
+        stateMachine.Audio.PlayOneShot(stateMachine.ImpactSounds[Random.Range(0, 2)]);
     }
 
     public override void Tick(float deltaTime)
