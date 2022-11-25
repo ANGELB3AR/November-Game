@@ -108,6 +108,7 @@ MonoBehaviour:
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
   <ImpactDuration>k__BackingField: 0.8
+  <Gravity>k__BackingField: 25
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0
@@ -125,7 +126,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.88, z: 0}
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!195 &549596541813533492
 NavMeshAgent:
   m_ObjectHideFlags: 0
