@@ -65,7 +65,7 @@ MonoBehaviour:
   <Audio>k__BackingField: {fileID: 4186788845683681956}
   <Player>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
-  <AttackRange>k__BackingField: 2
+  <AttackRange>k__BackingField: 1.5
   <SwordCombo>k__BackingField:
   - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
