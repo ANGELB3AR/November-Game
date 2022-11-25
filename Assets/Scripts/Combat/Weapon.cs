@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CapsuleCollider))]
 public class Weapon : MonoBehaviour, IDamageModifier
@@ -35,7 +36,6 @@ public class Weapon : MonoBehaviour, IDamageModifier
         if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(damageCounter.GetDamage());
-            Debug.Log($"Weapon hit with {damageCounter.GetDamage()} damage");
         }
     }
 
