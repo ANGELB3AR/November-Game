@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
         {
             health.DealDamage(damageCounter.GetDamage());
 
-            Instantiate(bloodSplatter, other.transform);
+            bloodSplatter.Play();
 
             if (time != null)
             {
