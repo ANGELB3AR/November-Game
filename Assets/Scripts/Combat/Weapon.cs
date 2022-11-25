@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
 
     [SerializeField] CapsuleCollider hitbox;
     [SerializeField] Collider myCollider;
+    [SerializeField] TrailRenderer trail;
     
     DamageCounter damageCounter;
 
@@ -49,6 +50,13 @@ public class Weapon : MonoBehaviour, IDamageModifier
         yield return percentageBonusDamage;
     }
 
+    public void ActivateWeaponTrail(bool status)
+    {
+        trail.emitting = status;
+    }
+
+
+    // Called by Animation Events
     public void EnableHitbox()
     {
         hitbox.enabled = true;

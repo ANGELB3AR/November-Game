@@ -27,6 +27,8 @@ public class PlayerAttackingState : PlayerBaseState
         stateMachine.InputReader.AttackEvent += OnAttack;
 
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+
+        stateMachine.Weapon.ActivateWeaponTrail(true);
     }
 
     public override void Tick(float deltaTime)
@@ -42,6 +44,8 @@ public class PlayerAttackingState : PlayerBaseState
         stateMachine.InputReader.AttackEvent -= OnAttack;
 
         stateMachine.Weapon.DisableWeaponColliders();
+
+        stateMachine.Weapon.ActivateWeaponTrail(false);
     }
 
     void TryComboAttack(float normalizedTime)

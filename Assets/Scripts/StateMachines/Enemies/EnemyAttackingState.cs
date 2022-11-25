@@ -26,6 +26,8 @@ public class EnemyAttackingState : EnemyBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+
+        stateMachine.Weapon.ActivateWeaponTrail(true);
     }
 
     public override void Tick(float deltaTime)
@@ -45,6 +47,6 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Exit()
     {
-        
+        stateMachine.Weapon.ActivateWeaponTrail(false);
     }
 }
