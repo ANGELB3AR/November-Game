@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
     [SerializeField] CapsuleCollider hitbox;
     [SerializeField] Collider myCollider;
     [SerializeField] TrailRenderer trail;
+    [SerializeField] TimeManipulator time = null;
     
     DamageCounter damageCounter;
 
@@ -20,6 +21,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
         damageCounter = GetComponentInParent<DamageCounter>();
         hitbox = GetComponent<CapsuleCollider>();
         myCollider = GetComponentInParent<CharacterController>();
+        time = GetComponentInParent<TimeManipulator>();
 
         DisableHitbox();
     }
@@ -37,6 +39,11 @@ public class Weapon : MonoBehaviour, IDamageModifier
         if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(damageCounter.GetDamage());
+
+            if (time != null)
+            {
+                time.SlowTime();
+            }
         }
     }
 

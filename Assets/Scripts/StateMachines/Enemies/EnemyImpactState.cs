@@ -17,7 +17,7 @@ public class EnemyImpactState : EnemyBaseState
 
         duration = stateMachine.ImpactDuration;
 
-        stateMachine.Player.Time.SlowTime();
+        //stateMachine.Player.Time.SlowTime();
     }
 
     public override void Tick(float deltaTime)
