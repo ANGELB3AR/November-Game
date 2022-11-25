@@ -62,7 +62,7 @@ MonoBehaviour:
   <Weapon>k__BackingField: {fileID: 4418554836811251413}
   <Damage>k__BackingField: {fileID: 1172188316}
   <Ragdoll>k__BackingField: {fileID: 1310673178}
-  <AudioSource>k__BackingField: {fileID: 73856855}
+  <Audio>k__BackingField: {fileID: 73856855}
   <MainCameraTransform>k__BackingField: {fileID: 0}
   <FreeLookMovementSpeed>k__BackingField: 10
   <TargetingMovementSpeed>k__BackingField: 5
@@ -610,11 +610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000000475673
+      value: 0.00000031723175
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000047683716
+      value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 4992783526423231883, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_Targets.Array.data[0].target
@@ -626,15 +626,15 @@ PrefabInstance:
       objectReference: {fileID: 764670945891609056}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1404688
+      value: 0.14046884
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00008073962
+      value: -0.00008078067
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000011454973
+      value: 0.0000114608
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
