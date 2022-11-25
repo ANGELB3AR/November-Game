@@ -8,6 +8,7 @@ public class TimeManipulator : MonoBehaviour
     [SerializeField] float slowedTime;
     [SerializeField] float duration;
 
+    // Gets called from Enemy Impact State
     public void SlowTime()
     {
         StartCoroutine(SlowTimeEffect());
