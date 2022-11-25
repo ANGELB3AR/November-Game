@@ -19,18 +19,17 @@ public abstract class EnemyBaseState : State
 
     protected void Move(Vector3 velocity, float speed, float deltaTime)
     {
-        velocity = ApplyGravity(velocity, deltaTime);
+        if (!stateMachine.Controller.isGrounded)
+        {
+            velocity = ApplyGravity(velocity, deltaTime);
+        }
 
         stateMachine.Controller.Move(velocity * speed * deltaTime);
     }
 
     Vector3 ApplyGravity(Vector3 velocity, float deltaTime)
     {
-        if (!stateMachine.Controller.isGrounded)
-        {
-            velocity.y -= stateMachine.Gravity * deltaTime;
-        }
-
+        velocity.y -= stateMachine.Gravity * deltaTime;
         return velocity;
     }
 }
