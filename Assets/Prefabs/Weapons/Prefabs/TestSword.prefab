@@ -131,6 +131,8 @@ MonoBehaviour:
   hitbox: {fileID: 6797437753993335147}
   myCollider: {fileID: 0}
   trail: {fileID: 1687923908999443232}
+  time: {fileID: 0}
+  bloodSplatter: {fileID: 198000011254678926, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
 --- !u!54 &6218842498229546616
 Rigidbody:
   m_ObjectHideFlags: 0

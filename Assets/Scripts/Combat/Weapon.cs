@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
     [SerializeField] Collider myCollider;
     [SerializeField] TrailRenderer trail;
     [SerializeField] TimeManipulator time = null;
+    [SerializeField] ParticleSystem bloodSplatter;
     
     DamageCounter damageCounter;
 
@@ -39,6 +40,8 @@ public class Weapon : MonoBehaviour, IDamageModifier
         if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(damageCounter.GetDamage());
+
+            Instantiate(bloodSplatter, other.transform);
 
             if (time != null)
             {
