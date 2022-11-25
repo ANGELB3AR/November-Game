@@ -71,54 +71,54 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 2b51e3ace1d4ab44dac8e895fc53c7cd, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: bedbdbbf6502f1c46be5cb5d67db73f0, type: 3}
   - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 0491a168a2780a34a8a2bbe9ffdea27f, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: e3fa5038b509f2c40a824307c059b691, type: 3}
   - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: -1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: ca3908cedb99da443998163e55b21b54, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 7a108dbffe6fb524489455d4d3ba7454, type: 3}
   <SpearCombo>k__BackingField:
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 2b51e3ace1d4ab44dac8e895fc53c7cd, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 2b51e3ace1d4ab44dac8e895fc53c7cd, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 3
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 2b51e3ace1d4ab44dac8e895fc53c7cd, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: -1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 2b51e3ace1d4ab44dac8e895fc53c7cd, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 14e838537e8b6c94aa6a05208b0c700c, type: 3}
   <HeavyCombo>k__BackingField:
   - <AnimationName>k__BackingField: HeavyAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: ca3908cedb99da443998163e55b21b54, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
   - <AnimationName>k__BackingField: HeavyAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 2b51e3ace1d4ab44dac8e895fc53c7cd, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 164e852eeceb6cc4eb9605971387dbdd, type: 3}
   - <AnimationName>k__BackingField: HeavyAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: -1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 0491a168a2780a34a8a2bbe9ffdea27f, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 5bd7c3f53d706ac4d87245df7e7de571, type: 3}
   <ImpactDuration>k__BackingField: 0.5
   <Gravity>k__BackingField: 25
 --- !u!114 &5101429304421845981
@@ -578,11 +578,11 @@ PrefabInstance:
       objectReference: {fileID: 5105635639105519711}
     - target: {fileID: 3311896813650217628, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008119969
+      value: -0.000000024578185
       objectReference: {fileID: 0}
     - target: {fileID: 3311896813650217628, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000026720954
+      value: 0.000000008047209
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814151608950, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
@@ -610,11 +610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000031723175
+      value: -0.000000475673
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 4992783526423231883, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_Targets.Array.data[0].target
@@ -626,15 +626,15 @@ PrefabInstance:
       objectReference: {fileID: 764670945891609056}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14046884
+      value: 0.1404688
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00008078067
+      value: -0.00008073962
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000114608
+      value: 0.000011454973
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
