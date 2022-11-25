@@ -29,6 +29,8 @@ public class PlayerAttackingState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
         stateMachine.Weapon.ActivateWeaponTrail(true);
+
+        stateMachine.AudioSource.PlayOneShot(attack.SoundEffect);
     }
 
     public override void Tick(float deltaTime)
