@@ -28,12 +28,19 @@ public abstract class PlayerBaseState : State
 
     protected void Move(Vector3 direction, float speed, float deltaTime)
     {
+        direction = ApplyGravity(direction, deltaTime);
+
+        stateMachine.Controller.Move(direction * speed * deltaTime);
+    }
+
+    Vector3 ApplyGravity(Vector3 direction, float deltaTime)
+    {
         if (!stateMachine.Controller.isGrounded)
         {
             direction.y -= stateMachine.Gravity * deltaTime;
         }
 
-        stateMachine.Controller.Move(direction * speed * deltaTime);
+        return direction;
     }
 
     protected void ReturnToLocomotion()
