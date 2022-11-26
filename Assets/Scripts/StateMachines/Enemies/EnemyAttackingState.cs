@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,10 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        //Move(stateMachine.transform.forward * attack.ForwardForce, 1, deltaTime);
+
+        MoveForward(deltaTime);
+
         if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
             if (stateMachine.FieldOfView.CanSeePlayer() && InAttackRange())
@@ -53,5 +58,13 @@ public class EnemyAttackingState : EnemyBaseState
     {
         stateMachine.Weapon.DisableWeaponColliders();
         stateMachine.Weapon.ActivateWeaponTrail(false);
+    }
+
+    void MoveForward(float deltaTime)
+    {
+        stateMachine.Agent.SetDestination(stateMachine.Player.transform.position);
+        Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
+
+        stateMachine.Agent.velocity = stateMachine.Controller.velocity;
     }
 }

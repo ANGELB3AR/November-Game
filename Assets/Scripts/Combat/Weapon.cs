@@ -59,8 +59,6 @@ public class Weapon : MonoBehaviour, IDamageModifier
         {
             Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
             knockbackReceiver.ReceiveKnockback(direction * knockback);
-            Debug.Log($"Knockback direction: {direction}\n" +
-                $"Knockback amount: {knockback}");
         }
     }
 
