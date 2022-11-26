@@ -6,6 +6,8 @@ using System;
 [RequireComponent(typeof(CapsuleCollider))]
 public class Weapon : MonoBehaviour, IDamageModifier
 {
+    public event Action OnWeaponHit;
+
     float baseDamage;
     float percentageBonusDamage;
 
@@ -39,6 +41,8 @@ public class Weapon : MonoBehaviour, IDamageModifier
 
         if (other.TryGetComponent<Health>(out Health health))
         {
+            OnWeaponHit?.Invoke();
+
             health.DealDamage(damageCounter.GetDamage());
 
             bloodSplatter.Play();

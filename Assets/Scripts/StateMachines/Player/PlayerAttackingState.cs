@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class PlayerAttackingState : PlayerBaseState
 {
     Attack attack;
+    bool shouldMove = true;
 
     public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
@@ -25,6 +27,7 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.AttackEvent += OnAttack;
+        stateMachine.Weapon.OnWeaponHit += StopMoving;
 
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
@@ -35,7 +38,8 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        Move(stateMachine.transform.forward, stateMachine.ForwardAttackSpeed, deltaTime);
+        ApplyForwardMovement(deltaTime);
+        
 
         if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
@@ -46,10 +50,18 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.AttackEvent -= OnAttack;
+        stateMachine.Weapon.OnWeaponHit -= StopMoving;
 
         stateMachine.Weapon.DisableWeaponColliders();
 
         stateMachine.Weapon.ActivateWeaponTrail(false);
+    }
+
+    void ApplyForwardMovement(float deltaTime)
+    {
+        if (!shouldMove) { return; }
+
+        Move(stateMachine.transform.forward, stateMachine.ForwardAttackSpeed, deltaTime);
     }
 
     void TryComboAttack(float normalizedTime)
@@ -63,5 +75,10 @@ public class PlayerAttackingState : PlayerBaseState
     void OnAttack()
     {
         TryComboAttack(GetNormalizedTime(stateMachine.Animator));
+    }
+
+    void StopMoving()
+    {
+        shouldMove = false;
     }
 }

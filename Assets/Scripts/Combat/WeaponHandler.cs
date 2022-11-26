@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
+    public event Action OnWeaponHit;
+
     [field:SerializeField] public WeaponConfig CurrentWeapon { get; private set; }
     [field:SerializeField] public Weapon EquippedPrefab { get; private set; }
 
@@ -19,6 +22,14 @@ public class WeaponHandler : MonoBehaviour
         Instantiate(CurrentWeapon.weaponPrefab, weaponTransform);
         EquippedPrefab = GetComponentInChildren<Weapon>();
         EquippedPrefab.SetDamageStats(CurrentWeapon.baseDamage, CurrentWeapon.percentageBonusDamage);
+        EquippedPrefab.OnWeaponHit += OnWeaponHit;
+    }
+
+    // Not currently being called
+    public void UnequipWeapon()
+    {
+        EquippedPrefab.OnWeaponHit -= OnWeaponHit;
+        CurrentWeapon = null;
     }
 
     public void EnableWeaponColliders()
@@ -43,5 +54,10 @@ public class WeaponHandler : MonoBehaviour
     public void ActivateWeaponTrail(bool status)
     {
         EquippedPrefab.ActivateWeaponTrail(status);
+    }
+
+    public void RaiseWeaponHitEvent()
+    {
+        OnWeaponHit?.Invoke();
     }
 }
