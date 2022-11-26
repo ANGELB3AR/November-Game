@@ -62,6 +62,7 @@ public class PlayerAttackingState : PlayerBaseState
         if (!shouldMove) { return; }
 
         Move(CalculateMovement(), stateMachine.ForwardAttackSpeed, deltaTime);
+        stateMachine.transform.rotation = Quaternion.LookRotation(CalculateMovement());
     }
 
     void TryComboAttack(float normalizedTime)
