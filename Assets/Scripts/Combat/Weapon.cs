@@ -53,13 +53,14 @@ public class Weapon : MonoBehaviour, IDamageModifier
             {
                 time.SlowTime();
             }
+
+            if (other.TryGetComponent<KnockbackReceiver>(out KnockbackReceiver knockbackReceiver))
+            {
+                Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
+                knockbackReceiver.ReceiveKnockback(direction * knockback);
+            }
         }
 
-        if (other.TryGetComponent<KnockbackReceiver>(out KnockbackReceiver knockbackReceiver))
-        {
-            Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
-            knockbackReceiver.ReceiveKnockback(direction * knockback);
-        }
     }
 
     public IEnumerable<float> GetAdditiveModifiers()

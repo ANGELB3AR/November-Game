@@ -52,6 +52,16 @@ public class EnemyStateMachine : StateMachine
         Agent.updateRotation = false;
     }
 
+    void Update()
+    {
+        if (!Controller.isGrounded)
+        {
+            Vector3 velocity = new Vector3();
+            velocity.y -= Gravity * Time.deltaTime;
+            Controller.Move(velocity);
+        }
+    }
+
     void OnDisable()
     {
         Health.OnDamageReceived -= HandleImpact;
