@@ -67,17 +67,17 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 5
   <AttackRange>k__BackingField: 1.5
   <SwordCombo>k__BackingField:
-  - <AnimationName>k__BackingField: SwordAttack1
+  - <AnimationName>k__BackingField: HeavyAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: bedbdbbf6502f1c46be5cb5d67db73f0, type: 3}
-  - <AnimationName>k__BackingField: SwordAttack2
+  - <AnimationName>k__BackingField: HeavyAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
-  - <AnimationName>k__BackingField: SwordAttack3
+  - <AnimationName>k__BackingField: HeavyAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
@@ -104,17 +104,17 @@ MonoBehaviour:
     <ComboIndex>k__BackingField: 0
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 14e838537e8b6c94aa6a05208b0c700c, type: 3}
   <HeavyCombo>k__BackingField:
-  - <AnimationName>k__BackingField: HeavyAttack1
+  - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
-  - <AnimationName>k__BackingField: HeavyAttack2
+  - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 164e852eeceb6cc4eb9605971387dbdd, type: 3}
-  - <AnimationName>k__BackingField: HeavyAttack3
+  - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
@@ -140,13 +140,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.85
-  m_Radius: 0.35
+  m_Height: 2.5
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.93, z: 0}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!195 &549596541813533492
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -67,17 +67,17 @@ MonoBehaviour:
   <FreeLookMovementSpeed>k__BackingField: 10
   <TargetingMovementSpeed>k__BackingField: 5
   <SwordCombo>k__BackingField:
-  - <AnimationName>k__BackingField: SwordAttack1
+  - <AnimationName>k__BackingField: HeavyAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: bedbdbbf6502f1c46be5cb5d67db73f0, type: 3}
-  - <AnimationName>k__BackingField: SwordAttack2
+  - <AnimationName>k__BackingField: HeavyAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: e3fa5038b509f2c40a824307c059b691, type: 3}
-  - <AnimationName>k__BackingField: SwordAttack3
+  - <AnimationName>k__BackingField: HeavyAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: -1
@@ -104,23 +104,23 @@ MonoBehaviour:
     <ComboIndex>k__BackingField: -1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 14e838537e8b6c94aa6a05208b0c700c, type: 3}
   <HeavyCombo>k__BackingField:
-  - <AnimationName>k__BackingField: HeavyAttack1
+  - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
-  - <AnimationName>k__BackingField: HeavyAttack2
+  - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 164e852eeceb6cc4eb9605971387dbdd, type: 3}
-  - <AnimationName>k__BackingField: HeavyAttack3
+  - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: -1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 5bd7c3f53d706ac4d87245df7e7de571, type: 3}
   <ImpactDuration>k__BackingField: 0.5
-  <Gravity>k__BackingField: 25
+  <Gravity>k__BackingField: 100
   <ImpactSounds>k__BackingField:
   - {fileID: 8300000, guid: 4e9ba169e5cedad4d9d6a3325f1aad51, type: 3}
   - {fileID: 8300000, guid: 536fbe93b5368584e9393a19132705f7, type: 3}
@@ -433,6 +433,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2285001520352809597, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
+      propertyPath: m_Instructions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285001520352809597, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_ChildCameras.Array.data[0]
       value: 
       objectReference: {fileID: 1788579074}
@@ -503,6 +507,10 @@ PrefabInstance:
     - target: {fileID: 2285001520352809597, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_ParentHash.Array.data[15].m_Hash
       value: 807406886
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285001520352809597, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
+      propertyPath: m_Instructions.Array.data[2].m_FullHash
+      value: -1063883918
       objectReference: {fileID: 0}
     - target: {fileID: 2285001520352809597, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_ParentHash.Array.data[0].m_ParentHash
@@ -618,11 +626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000032479875
+      value: 0.00000010454096
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 4992783526423231883, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_Targets.Array.data[0].target
@@ -634,15 +642,15 @@ PrefabInstance:
       objectReference: {fileID: 764670945891609056}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14046884
+      value: 0.14046882
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000080747435
+      value: -0.000080769656
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000011456083
+      value: 0.000011459234
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
@@ -657,6 +665,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1991990473746368507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3914402488373670646, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
+  m_PrefabInstance: {fileID: 3311896813358265613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418012735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991990473746368507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 0.1
+  m_Use2DDistance: 0
+  m_UseCameraSpace: 1
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &3637968902050093055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2272789403861164786, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
