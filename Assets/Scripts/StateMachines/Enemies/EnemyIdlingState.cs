@@ -17,6 +17,8 @@ public class EnemyIdlingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        Move(Vector3.zero, stateMachine.MovementSpeed, deltaTime);
+
         if (stateMachine.FieldOfView.CanSeePlayer())
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));

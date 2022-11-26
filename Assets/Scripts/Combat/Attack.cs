@@ -11,4 +11,5 @@ public class Attack
     [field:SerializeField] public int ComboIndex { get; private set; } = -1;
     [field:SerializeField] public AudioClip SoundEffect { get; private set; } = null;
     [field:SerializeField] public float Knockback { get; private set; }
+    [field:SerializeField] public float ForwardForce { get; private set; }
 }
