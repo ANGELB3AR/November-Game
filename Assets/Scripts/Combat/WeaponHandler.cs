@@ -39,4 +39,9 @@ public class WeaponHandler : MonoBehaviour
         rb.useGravity = true;
         EquippedPrefab.transform.parent = null;
     }
+
+    public void ActivateWeaponTrail(bool status)
+    {
+        EquippedPrefab.ActivateWeaponTrail(status);
+    }
 }

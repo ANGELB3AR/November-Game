@@ -16,6 +16,8 @@ public class PlayerImpactState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(impactHash, crossFadeDuration);
 
         duration = stateMachine.ImpactDuration;
+
+        stateMachine.Audio.PlayOneShot(stateMachine.ImpactSounds[Random.Range(0, 2)]);
     }
 
     public override void Tick(float deltaTime)

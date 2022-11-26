@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 555373582}
   - component: {fileID: 5046677470298060593}
   - component: {fileID: 2348327806705539098}
+  - component: {fileID: 4186788845683681956}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -61,53 +62,73 @@ MonoBehaviour:
   <Weapon>k__BackingField: {fileID: 509562407143167142}
   <Damage>k__BackingField: {fileID: 5046677470298060593}
   <Ragdoll>k__BackingField: {fileID: 2348327806705539098}
+  <Audio>k__BackingField: {fileID: 4186788845683681956}
   <Player>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
-  <AttackRange>k__BackingField: 2
+  <AttackRange>k__BackingField: 1.5
   <SwordCombo>k__BackingField:
   - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: bedbdbbf6502f1c46be5cb5d67db73f0, type: 3}
   - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
   - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 7a108dbffe6fb524489455d4d3ba7454, type: 3}
   <SpearCombo>k__BackingField:
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 3
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 14e838537e8b6c94aa6a05208b0c700c, type: 3}
   <HeavyCombo>k__BackingField:
   - <AnimationName>k__BackingField: HeavyAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
   - <AnimationName>k__BackingField: HeavyAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 164e852eeceb6cc4eb9605971387dbdd, type: 3}
   - <AnimationName>k__BackingField: HeavyAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 5bd7c3f53d706ac4d87245df7e7de571, type: 3}
   <ImpactDuration>k__BackingField: 0.8
+  <Gravity>k__BackingField: 25
+  <ImpactSounds>k__BackingField:
+  - {fileID: 8300000, guid: 4e9ba169e5cedad4d9d6a3325f1aad51, type: 3}
+  - {fileID: 8300000, guid: 536fbe93b5368584e9393a19132705f7, type: 3}
+  - {fileID: 8300000, guid: cd24fc522a1418c4081ce1380e592e71, type: 3}
+  <DeathSounds>k__BackingField:
+  - {fileID: 8300000, guid: 7fac98e0d5906a84da5849f1f1619c44, type: 3}
+  - {fileID: 8300000, guid: 644e89fe570094d48b610d09325be7b2, type: 3}
+  - {fileID: 8300000, guid: f2dd583fa537fd94e9f502b5dd9d0149, type: 3}
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0
@@ -125,7 +146,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.88, z: 0}
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!195 &549596541813533492
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -217,6 +238,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2be3e1e32e1e448189636d8a16e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &4186788845683681956
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101429304421845968}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2914693631988844317
 PrefabInstance:
   m_ObjectHideFlags: 0

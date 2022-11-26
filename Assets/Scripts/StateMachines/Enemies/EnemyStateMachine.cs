@@ -15,6 +15,7 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public WeaponHandler Weapon { get; private set; }
     [field:SerializeField] public DamageCounter Damage { get; private set; }
     [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
+    [field:SerializeField] public AudioSource Audio { get; private set; }
 
     // External References
     [field:SerializeField] public PlayerStateMachine Player { get; private set; }
@@ -26,6 +27,10 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public Attack[] SpearCombo { get; private set; }
     [field:SerializeField] public Attack[] HeavyCombo { get; private set; }
     [field:SerializeField] public float ImpactDuration { get; private set; }
+    [field:SerializeField] public float Gravity { get; private set; }
+    [field: SerializeField] public AudioClip[] ImpactSounds { get; private set; }
+    [field: SerializeField] public AudioClip[] DeathSounds { get; private set; }
+
 
     void Awake()
     {
@@ -66,5 +71,6 @@ public class EnemyStateMachine : StateMachine
         Controller.enabled = false;
         Animator.enabled = false;
         Weapon.DropWeapon();
+        Audio.PlayOneShot(DeathSounds[UnityEngine.Random.Range(0, 2)]);
     }
 }

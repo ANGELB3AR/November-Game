@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(CapsuleCollider))]
 public class Weapon : MonoBehaviour, IDamageModifier
@@ -10,6 +11,9 @@ public class Weapon : MonoBehaviour, IDamageModifier
 
     [SerializeField] CapsuleCollider hitbox;
     [SerializeField] Collider myCollider;
+    [SerializeField] TrailRenderer trail;
+    [SerializeField] TimeManipulator time = null;
+    [SerializeField] ParticleSystem bloodSplatter;
     
     DamageCounter damageCounter;
 
@@ -18,6 +22,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
         damageCounter = GetComponentInParent<DamageCounter>();
         hitbox = GetComponent<CapsuleCollider>();
         myCollider = GetComponentInParent<CharacterController>();
+        time = GetComponentInParent<TimeManipulator>();
 
         DisableHitbox();
     }
@@ -35,7 +40,13 @@ public class Weapon : MonoBehaviour, IDamageModifier
         if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(damageCounter.GetDamage());
-            Debug.Log($"Weapon hit with {damageCounter.GetDamage()} damage");
+
+            bloodSplatter.Play();
+
+            if (time != null)
+            {
+                time.SlowTime();
+            }
         }
     }
 
@@ -49,6 +60,13 @@ public class Weapon : MonoBehaviour, IDamageModifier
         yield return percentageBonusDamage;
     }
 
+    public void ActivateWeaponTrail(bool status)
+    {
+        trail.emitting = status;
+    }
+
+
+    // Called by Animation Events
     public void EnableHitbox()
     {
         hitbox.enabled = true;
