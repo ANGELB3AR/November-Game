@@ -16,6 +16,7 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public DamageCounter Damage { get; private set; }
     [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
     [field:SerializeField] public AudioSource Audio { get; private set; }
+    [field:SerializeField] public KnockbackReceiver Knockback { get; private set; }
 
     // External References
     [field:SerializeField] public PlayerStateMachine Player { get; private set; }
