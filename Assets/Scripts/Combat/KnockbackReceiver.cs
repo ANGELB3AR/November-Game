@@ -17,6 +17,7 @@ public class KnockbackReceiver : MonoBehaviour
 
         if (controller.enabled == true)
         {
+            knockbackForce.y = 0;
             controller.Move(knockbackForce);
         }
 
@@ -24,5 +25,6 @@ public class KnockbackReceiver : MonoBehaviour
         {
             agent.enabled = true;
         }
+        Debug.Log($"Applied knockback force of {knockbackForce}");
     }
 }
