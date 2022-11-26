@@ -35,6 +35,8 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        Move(stateMachine.transform.forward, stateMachine.ForwardAttackSpeed, deltaTime);
+
         if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
             ReturnToLocomotion();

@@ -21,6 +21,7 @@ public class PlayerStateMachine : StateMachine
     // Variable References
     [field:SerializeField] public float FreeLookMovementSpeed { get; private set; }
     [field:SerializeField] public float TargetingMovementSpeed { get; private set; }
+    [field:SerializeField] public float ForwardAttackSpeed { get; private set; }
     [field:SerializeField] public Attack[] SwordCombo { get; private set; }
     [field:SerializeField] public Attack[] SpearCombo { get; private set; }
     [field: SerializeField] public Attack[] HeavyCombo { get; private set; }
