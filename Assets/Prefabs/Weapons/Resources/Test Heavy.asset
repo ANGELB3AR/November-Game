@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponClass: 2
   weaponPrefab: {fileID: -2281681402504109188, guid: f8d97746de6254148b5fa30dbdab7d2f, type: 3}
-  baseDamage: 10
+  baseDamage: 15
   percentageBonusDamage: 5

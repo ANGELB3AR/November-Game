@@ -49,6 +49,7 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Exit()
     {
+        stateMachine.Weapon.DisableWeaponColliders();
         stateMachine.Weapon.ActivateWeaponTrail(false);
     }
 }
