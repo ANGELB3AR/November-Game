@@ -28,6 +28,8 @@ public class PlayerAttackingState : PlayerBaseState
 
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
+        stateMachine.Weapon.SetKnockback(attack.Knockback);
+
         stateMachine.Weapon.ActivateWeaponTrail(true);
 
         stateMachine.Audio.PlayOneShot(attack.SoundEffect);

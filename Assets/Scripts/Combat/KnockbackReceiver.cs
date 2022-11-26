@@ -1,11 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class KnockbackReceiver : MonoBehaviour
 {
-    public Vector3 ReceiveKnockback(Vector3 direction, float distance)
+    [SerializeField] CharacterController controller;
+    [SerializeField] NavMeshAgent agent = null;
+
+    public void ReceiveKnockback(Vector3 knockbackForce)
     {
-        return direction * distance;
+        if (agent != null)
+        {
+            agent.enabled = false;
+        }
+
+        controller.Move(knockbackForce);
+
+        if (agent != null)
+        {
+            agent.enabled = true;
+        }
     }
 }

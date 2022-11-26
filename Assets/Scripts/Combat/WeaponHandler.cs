@@ -21,6 +21,11 @@ public class WeaponHandler : MonoBehaviour
         EquippedPrefab.SetDamageStats(CurrentWeapon.baseDamage, CurrentWeapon.percentageBonusDamage);
     }
 
+    public void SetKnockback(float knockback)
+    {
+        EquippedPrefab.SetKnockback(knockback);
+    }
+
     public void EnableWeaponColliders()
     {
         EquippedPrefab.EnableHitbox();

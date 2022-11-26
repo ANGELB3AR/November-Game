@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
 {
     float baseDamage;
     float percentageBonusDamage;
+    float knockback;
 
     [SerializeField] CapsuleCollider hitbox;
     [SerializeField] Collider myCollider;
@@ -33,6 +34,11 @@ public class Weapon : MonoBehaviour, IDamageModifier
         this.percentageBonusDamage = percentageBonusDamage;
     }
 
+    public void SetKnockback(float knockback)
+    {
+        this.knockback = knockback;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other == myCollider) { return; }
@@ -47,6 +53,12 @@ public class Weapon : MonoBehaviour, IDamageModifier
             {
                 time.SlowTime();
             }
+        }
+
+        if (other.TryGetComponent<KnockbackReceiver>(out KnockbackReceiver knockbackReceiver))
+        {
+            Vector3 direction = (other.transform.position - myCollider.transform.position).normalized;
+            knockbackReceiver.ReceiveKnockback(direction * knockback);
         }
     }
 
