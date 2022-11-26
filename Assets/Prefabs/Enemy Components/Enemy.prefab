@@ -74,63 +74,73 @@ MonoBehaviour:
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: bedbdbbf6502f1c46be5cb5d67db73f0, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 3
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: HeavyAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 3
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: HeavyAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 7a108dbffe6fb524489455d4d3ba7454, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 6
+    <ForwardForce>k__BackingField: 0
   <SpearCombo>k__BackingField:
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 2
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 2
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 3
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 2
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: SpearStab
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 14e838537e8b6c94aa6a05208b0c700c, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 3
+    <ForwardForce>k__BackingField: 0
   <HeavyCombo>k__BackingField:
   - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 1198652ba24ae724798ebe664198a2d8, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 3
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 164e852eeceb6cc4eb9605971387dbdd, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 3
+    <ForwardForce>k__BackingField: 0
   - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 0
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 5bd7c3f53d706ac4d87245df7e7de571, type: 3}
-    <Knockback>k__BackingField: 0
+    <Knockback>k__BackingField: 5
+    <ForwardForce>k__BackingField: 0
   <ImpactDuration>k__BackingField: 0.8
   <Gravity>k__BackingField: 25
   <ImpactSounds>k__BackingField:
