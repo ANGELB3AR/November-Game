@@ -61,7 +61,7 @@ public class PlayerAttackingState : PlayerBaseState
     {
         if (!shouldMove) { return; }
 
-        Move(stateMachine.InputReader.MovementValue, stateMachine.ForwardAttackSpeed, deltaTime);
+        Move(CalculateMovement(), stateMachine.ForwardAttackSpeed, deltaTime);
     }
 
     void TryComboAttack(float normalizedTime)
