@@ -14,6 +14,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public DamageCounter Damage { get; private set; }
     [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
     [field:SerializeField] public AudioSource Audio { get; private set; }
+    [field:SerializeField] public KnockbackReceiver Knockback { get; private set; }
 
     // External References
     [field:SerializeField] public Transform MainCameraTransform { get; private set; }
@@ -63,6 +64,7 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerDeathState(this));
 
         Ragdoll.ToggleRagdoll(true);
+        Knockback.enabled = false;
         Controller.enabled = false;
         Animator.enabled = false;
         Weapon.DropWeapon();
