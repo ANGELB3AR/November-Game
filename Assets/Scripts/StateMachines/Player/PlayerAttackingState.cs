@@ -8,6 +8,9 @@ public class PlayerAttackingState : PlayerBaseState
     Attack attack;
     bool shouldMove = true;
 
+    readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
+    readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
+
     public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
        if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Sword)
@@ -39,7 +42,7 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         ApplyForwardMovement(deltaTime);
-        
+        ApplyRotationControl();
 
         if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
@@ -61,7 +64,23 @@ public class PlayerAttackingState : PlayerBaseState
     {
         if (!shouldMove) { return; }
 
-        Move(CalculateMovement(), stateMachine.ForwardAttackSpeed, deltaTime);
+        Vector3 direction;
+
+        if (CalculateMovement() == Vector3.zero)
+        {
+            direction = CalculateMovement();
+        }
+        else
+        {
+            direction = stateMachine.transform.forward;
+        }
+
+        Move(direction, stateMachine.ForwardAttackSpeed, deltaTime);
+    }
+
+    void ApplyRotationControl()
+    {
+        if (stateMachine.Animator.GetFloat(TargetingForwardHash) != 0 && stateMachine.Animator.GetFloat(TargetingRightHash) != 0) { return; }
         stateMachine.transform.rotation = Quaternion.LookRotation(CalculateMovement());
     }
 
