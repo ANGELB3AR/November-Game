@@ -19,6 +19,7 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.CycleTargetLeftEvent += OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent += OnCycleTargetRight;
         stateMachine.InputReader.AttackEvent += OnAttack;
+        stateMachine.InputReader.DodgeEvent += OnDodge;
 
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, crossFadeDuration);
 
@@ -33,9 +34,8 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         Move(CalculateMovement(), stateMachine.TargetingMovementSpeed, deltaTime);
-        UpdateAnimator(deltaTime);
+        UpdateAnimator(TargetingForwardHash, TargetingRightHash, deltaTime);
         FaceTarget();
-        
     }
 
     public override void Exit()
@@ -44,6 +44,7 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.InputReader.CycleTargetLeftEvent -= OnCycleTargetLeft;
         stateMachine.InputReader.CycleTargetRightEvent -= OnCycleTargetRight;
         stateMachine.InputReader.AttackEvent -= OnAttack;
+        stateMachine.InputReader.DodgeEvent -= OnDodge;
     }
 
     void OnCancel()
@@ -51,43 +52,6 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.Targeter.Cancel();
 
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
-    }
-
-    void UpdateAnimator(float deltaTime)
-    {
-        if (stateMachine.InputReader.MovementValue.y == 0)
-        {
-            stateMachine.Animator.SetFloat(TargetingForwardHash, 0, 0.1f, deltaTime);
-        }
-        else
-        {
-            float value = stateMachine.InputReader.MovementValue.y > 0 ? 1f : -1f;
-            stateMachine.Animator.SetFloat(TargetingForwardHash, value, 0.1f, deltaTime);
-        }
-
-        if (stateMachine.InputReader.MovementValue.x == 0)
-        {
-            stateMachine.Animator.SetFloat(TargetingRightHash, 0, 0.1f, deltaTime);
-        }
-        else
-        {
-            float value = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
-            stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
-        }
-    }
-
-    void FaceTarget()
-    {
-        Target target = stateMachine.Targeter.CurrentTarget;
-
-        if (target == null)
-        {
-            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
-        }
-
-        Vector3 lookDirection = target.transform.position - stateMachine.transform.position;
-        lookDirection.y = 0f;
-        stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 
     void OnCycleTargetLeft()
@@ -103,5 +67,11 @@ public class PlayerTargetingState : PlayerBaseState
     void OnAttack()
     {
         stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
+    }
+
+    void OnDodge()
+    {
+        if (Time.time - stateMachine.PreviousDodgeTime < stateMachine.DodgeCooldown) { return; }
+        stateMachine.SwitchState(new PlayerDodgingState(stateMachine));
     }
 }

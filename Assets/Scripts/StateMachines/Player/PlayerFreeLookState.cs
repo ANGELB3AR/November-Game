@@ -16,6 +16,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.AttackEvent += OnAttack;
+        stateMachine.InputReader.DodgeEvent += OnDodge;
 
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, crossFadeDuration);
     }
@@ -37,6 +38,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.AttackEvent -= OnAttack;
+        stateMachine.InputReader.DodgeEvent -= OnDodge;
     }
 
     void OnTarget()
@@ -47,5 +49,11 @@ public class PlayerFreeLookState : PlayerBaseState
     void OnAttack()
     {
         stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
+    }
+
+    void OnDodge()
+    {
+        if (Time.time - stateMachine.PreviousDodgeTime < stateMachine.DodgeCooldown) { return; }
+        stateMachine.SwitchState(new PlayerDodgingState(stateMachine));
     }
 }

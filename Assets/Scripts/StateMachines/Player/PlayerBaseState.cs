@@ -53,4 +53,41 @@ public abstract class PlayerBaseState : State
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
         }
     }
+
+    protected void UpdateAnimator(int forwardHash, int rightHash, float deltaTime)
+    {
+        if (stateMachine.InputReader.MovementValue.y == 0)
+        {
+            stateMachine.Animator.SetFloat(forwardHash, 0, 0.1f, deltaTime);
+        }
+        else
+        {
+            float value = stateMachine.InputReader.MovementValue.y > 0 ? 1f : -1f;
+            stateMachine.Animator.SetFloat(forwardHash, value, 0.1f, deltaTime);
+        }
+
+        if (stateMachine.InputReader.MovementValue.x == 0)
+        {
+            stateMachine.Animator.SetFloat(rightHash, 0, 0.1f, deltaTime);
+        }
+        else
+        {
+            float value = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
+            stateMachine.Animator.SetFloat(rightHash, value, 0.1f, deltaTime);
+        }
+    }
+
+    protected void FaceTarget()
+    {
+        Target target = stateMachine.Targeter.CurrentTarget;
+
+        if (target == null)
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+        }
+
+        Vector3 lookDirection = target.transform.position - stateMachine.transform.position;
+        lookDirection.y = 0f;
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
+    }
 }

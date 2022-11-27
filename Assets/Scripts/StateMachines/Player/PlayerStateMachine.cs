@@ -31,6 +31,7 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public AudioClip[] DeathSounds { get; private set; }
     [field:SerializeField] public float DodgeDuration { get; private set; }
     [field:SerializeField] public float DodgeDistance { get; private set; }
+    [field:SerializeField] public float DodgeSpeed { get; private set; }
     [field:SerializeField] public float DodgeCooldown { get; private set; }
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
 
@@ -72,5 +73,10 @@ public class PlayerStateMachine : StateMachine
         Animator.enabled = false;
         Weapon.DropWeapon();
         Audio.PlayOneShot(DeathSounds[UnityEngine.Random.Range(0, 2)]);
+    }
+
+    public void SetDodgeTime()
+    {
+        PreviousDodgeTime = Time.deltaTime;
     }
 }
