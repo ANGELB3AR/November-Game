@@ -19,15 +19,23 @@ public class PlayerDodgingState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(DodgingBlendTreeHash, crossFadeDuration);
 
         stateMachine.SetDodgeTime();
-        dodgingDirection = stateMachine.InputReader.MovementValue;
         remainingDodgeTime = stateMachine.DodgeDuration;
+
+        if (stateMachine.InputReader.MovementValue == Vector2.zero)
+        {
+            dodgingDirection = new Vector2(0, -1);
+        }
+        else
+        {
+            dodgingDirection = stateMachine.InputReader.MovementValue;
+        }
     }
 
     public override void Tick(float deltaTime)
     {
         remainingDodgeTime = Mathf.Max(remainingDodgeTime - deltaTime, 0f);
 
-        Move(CalculateMovement(), stateMachine.DodgeSpeed, deltaTime);
+        Move(CalculateMovement(dodgingDirection, remainingDodgeTime), stateMachine.DodgeSpeed, deltaTime);
         UpdateAnimator(DodgingForwardHash, DodgingRightHash, deltaTime);
 
         if (stateMachine.Targeter.CurrentTarget != null)
