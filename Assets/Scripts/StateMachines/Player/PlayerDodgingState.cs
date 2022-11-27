@@ -40,7 +40,7 @@ public class PlayerDodgingState : PlayerBaseState
         movement += stateMachine.MainCameraTransform.right * dodgingDirection.x * stateMachine.DodgeDistance / stateMachine.DodgeDuration;
         movement += stateMachine.MainCameraTransform.forward * dodgingDirection.y * stateMachine.DodgeDistance / stateMachine.DodgeDuration;
 
-        Move(movement, stateMachine.DodgeSpeed, deltaTime);
+        Move(movement, 1, deltaTime);
         UpdateAnimator(DodgingForwardHash, DodgingRightHash, deltaTime);
 
         if (stateMachine.Targeter.CurrentTarget != null)

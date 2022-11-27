@@ -8,9 +8,6 @@ public class PlayerAttackingState : PlayerBaseState
     Attack attack;
     bool shouldMove = true;
 
-    readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
-    readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
-
     public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
        if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Sword)
