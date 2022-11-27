@@ -135,6 +135,7 @@ MonoBehaviour:
   trail: {fileID: 1928510138365901680}
   time: {fileID: 0}
   bloodSplatter: {fileID: 7142645950296447997}
+  hitEffect: {fileID: 198944286794288116, guid: 07757cf211bd45044a1f1917658b9e66, type: 3}
 --- !u!54 &2988769044735557865
 Rigidbody:
   m_ObjectHideFlags: 0
