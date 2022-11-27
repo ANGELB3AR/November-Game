@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
     [SerializeField] TrailRenderer trail;
     [SerializeField] TimeManipulator time = null;
     [SerializeField] ParticleSystem bloodSplatter;
+    [SerializeField] ParticleSystem hitEffect;
     
     DamageCounter damageCounter;
 
@@ -46,6 +47,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
             health.DealDamage(damageCounter.GetDamage());
 
             bloodSplatter.Play();
+            hitEffect.Play();
 
             if (time != null)
             {
