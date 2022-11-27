@@ -35,7 +35,10 @@ public class PlayerDodgingState : PlayerBaseState
             FaceTarget();
         }
 
-
+        if (remainingDodgeTime == 0)
+        {
+            ReturnToLocomotion();
+        }
     }
 
     public override void Exit()
