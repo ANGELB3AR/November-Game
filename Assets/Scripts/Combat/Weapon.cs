@@ -46,8 +46,8 @@ public class Weapon : MonoBehaviour, IDamageModifier
 
             health.DealDamage(damageCounter.GetDamage());
 
+            Instantiate(hitEffect, other.transform.position + new Vector3(0,1,0), Quaternion.identity);
             bloodSplatter.Play();
-            hitEffect.Play();
 
             if (time != null)
             {
