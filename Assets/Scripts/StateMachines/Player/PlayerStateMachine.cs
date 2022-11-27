@@ -28,7 +28,11 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public float ImpactDuration { get; private set; }
     [field:SerializeField] public float Gravity { get; private set; }
     [field:SerializeField] public AudioClip[] ImpactSounds { get; private set; }
-    [field: SerializeField] public AudioClip[] DeathSounds { get; private set; }
+    [field:SerializeField] public AudioClip[] DeathSounds { get; private set; }
+    [field:SerializeField] public float DodgeDuration { get; private set; }
+    [field:SerializeField] public float DodgeDistance { get; private set; }
+    [field:SerializeField] public float DodgeCooldown { get; private set; }
+    public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
 
 
 
