@@ -35,7 +35,12 @@ public class PlayerDodgingState : PlayerBaseState
     {
         remainingDodgeTime = Mathf.Max(remainingDodgeTime - deltaTime, 0f);
 
-        Move(CalculateMovement(dodgingDirection, remainingDodgeTime), stateMachine.DodgeSpeed, deltaTime);
+        Vector3 movement = new Vector3();
+
+        movement += stateMachine.MainCameraTransform.right * dodgingDirection.x * stateMachine.DodgeDistance / stateMachine.DodgeDuration;
+        movement += stateMachine.MainCameraTransform.forward * dodgingDirection.y * stateMachine.DodgeDistance / stateMachine.DodgeDuration;
+
+        Move(movement, stateMachine.DodgeSpeed, deltaTime);
         UpdateAnimator(DodgingForwardHash, DodgingRightHash, deltaTime);
 
         if (stateMachine.Targeter.CurrentTarget != null)
