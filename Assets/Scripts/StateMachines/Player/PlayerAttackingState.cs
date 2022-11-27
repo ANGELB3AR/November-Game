@@ -27,7 +27,7 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.AttackEvent += OnAttack;
-        stateMachine.Weapon.OnWeaponHit += StopMoving;
+        stateMachine.Weapon.EquippedPrefab.OnWeaponHit += StopMoving;
 
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
@@ -50,7 +50,7 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.AttackEvent -= OnAttack;
-        stateMachine.Weapon.OnWeaponHit -= StopMoving;
+        stateMachine.Weapon.EquippedPrefab.OnWeaponHit -= StopMoving;
 
         stateMachine.Weapon.DisableWeaponColliders();
 
@@ -78,6 +78,7 @@ public class PlayerAttackingState : PlayerBaseState
     void ApplyRotationControl()
     {
         if (stateMachine.Targeter.CurrentTarget != null) { return; }
+        if (!shouldMove) { return; }
         stateMachine.transform.rotation = Quaternion.LookRotation(CalculateMovement());
     }
 
