@@ -80,7 +80,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     void ApplyRotationControl()
     {
-        if (stateMachine.Animator.GetFloat(TargetingForwardHash) != 0 && stateMachine.Animator.GetFloat(TargetingRightHash) != 0) { return; }
+        if (stateMachine.Targeter.CurrentTarget != null) { return; }
         stateMachine.transform.rotation = Quaternion.LookRotation(CalculateMovement());
     }
 
