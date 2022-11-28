@@ -36,8 +36,7 @@ public class EnemyStateMachine : StateMachine
 
     void Awake()
     {
-        Player = FieldOfView.GetPlayer();
-        AITracker = FindObjectOfType<AITracker>();
+        
     }
 
     void OnEnable()
@@ -48,6 +47,9 @@ public class EnemyStateMachine : StateMachine
 
     void Start()
     {
+        Player = FieldOfView.GetPlayer();
+        AITracker = FindObjectOfType<AITracker>();
+
         SwitchState(new EnemyIdlingState(this));
 
         Agent.updatePosition = false;
