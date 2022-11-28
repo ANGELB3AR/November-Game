@@ -152,8 +152,8 @@ GameObject:
   - component: {fileID: 7335180516146497179}
   - component: {fileID: 7344993578654062519}
   - component: {fileID: 7302800481343688893}
-  - component: {fileID: -2281681402504109188}
   - component: {fileID: 4708694625443474140}
+  - component: {fileID: -2281681402504109188}
   - component: {fileID: 1531643143092190274}
   - component: {fileID: 2021239440029729007}
   m_Layer: 0
@@ -244,6 +244,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43279502663354382, guid: 8ce8d008203b43044aaf332b0571f508, type: 2}
+--- !u!136 &4708694625443474140
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329612048137650683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.16
+  m_Height: 0.57
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &-2281681402504109188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,20 +276,6 @@ MonoBehaviour:
   time: {fileID: 0}
   bloodSplatter: {fileID: 7059423557659127010}
   hitEffect: {fileID: 198944286794288116, guid: 07757cf211bd45044a1f1917658b9e66, type: 3}
---- !u!136 &4708694625443474140
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7329612048137650683}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.16
-  m_Height: 0.57
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!54 &1531643143092190274
 Rigidbody:
   m_ObjectHideFlags: 0
