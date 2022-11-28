@@ -21,6 +21,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         MoveToPlayer(deltaTime);
         FacePlayer();
+        AvoidOtherAI(deltaTime);
 
         if (InAttackRange())
         {
@@ -62,5 +63,20 @@ public class EnemyChasingState : EnemyBaseState
         lookDirection.y = 0f;
 
         stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
+    }
+
+    void AvoidOtherAI(float deltaTime)
+    {
+        foreach (EnemyStateMachine AI in stateMachine.AITracker.activeAIUnits)
+        {
+            if (AI != this.stateMachine)
+            {
+                if (Vector3.Distance(this.stateMachine.transform.position, AI.transform.position) <= stateMachine.AIAvoidanceDistance)
+                {
+                    Vector3 direction = (stateMachine.transform.position - AI.transform.position).normalized;
+                    stateMachine.Controller.Move(direction * stateMachine.MovementSpeed * deltaTime);
+                }
+            }
+        }
     }
 }

@@ -19,6 +19,7 @@ public class EnemyStateMachine : StateMachine
 
     // External References
     [field:SerializeField] public PlayerStateMachine Player { get; private set; }
+    [field:SerializeField] public AITracker AITracker { get; private set; }
 
     // Variable References
     [field:SerializeField] public float MovementSpeed { get; private set; }
@@ -28,8 +29,9 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public Attack[] HeavyCombo { get; private set; }
     [field:SerializeField] public float ImpactDuration { get; private set; }
     [field:SerializeField] public float Gravity { get; private set; }
-    [field: SerializeField] public AudioClip[] ImpactSounds { get; private set; }
-    [field: SerializeField] public AudioClip[] DeathSounds { get; private set; }
+    [field:SerializeField] public AudioClip[] ImpactSounds { get; private set; }
+    [field:SerializeField] public AudioClip[] DeathSounds { get; private set; }
+    [field:SerializeField] public float AIAvoidanceDistance { get; private set; }
 
 
     void Awake()
