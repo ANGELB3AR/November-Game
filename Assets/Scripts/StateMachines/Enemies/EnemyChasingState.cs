@@ -21,7 +21,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         MoveToPlayer(deltaTime);
         FacePlayer();
-        //AvoidOtherAI(deltaTime);
+        UpdateAnimator();
 
         if (InAttackRange())
         {
@@ -31,15 +31,6 @@ public class EnemyChasingState : EnemyBaseState
         if (!stateMachine.FieldOfView.CanSeePlayer())
         {
             stateMachine.SwitchState(new EnemyIdlingState(stateMachine));
-        }
-
-        if (stateMachine.Controller.velocity == Vector3.zero)
-        {
-            stateMachine.Animator.SetFloat(ChasingSpeedHash, 0);
-        }
-        else
-        {
-            stateMachine.Animator.SetFloat(ChasingSpeedHash, 1);
         }
     }
 
@@ -51,7 +42,7 @@ public class EnemyChasingState : EnemyBaseState
 
     void MoveToPlayer(float deltaTime)
     {
-        stateMachine.Agent.SetDestination(stateMachine.Player.transform.position);
+        stateMachine.Agent.SetDestination(stateMachine.AITracker.SurroundTarget());
         Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
@@ -65,21 +56,15 @@ public class EnemyChasingState : EnemyBaseState
         stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 
-    void AvoidOtherAI(float deltaTime)
+    private void UpdateAnimator()
     {
-        foreach (EnemyStateMachine AI in stateMachine.AITracker.activeAIUnits)
+        if (stateMachine.Controller.velocity == Vector3.zero)
         {
-            if (AI != this.stateMachine)
-            {
-                if (Vector3.Distance(this.stateMachine.transform.position, AI.transform.position) <= stateMachine.AIAvoidanceDistance)
-                {
-                    Vector3 direction = (stateMachine.transform.position - AI.transform.position);
-                    stateMachine.Agent.SetDestination(direction);
-                    Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
-
-                    stateMachine.Agent.velocity = stateMachine.Controller.velocity;
-                }
-            }
+            stateMachine.Animator.SetFloat(ChasingSpeedHash, 0);
+        }
+        else
+        {
+            stateMachine.Animator.SetFloat(ChasingSpeedHash, 1);
         }
     }
 }
