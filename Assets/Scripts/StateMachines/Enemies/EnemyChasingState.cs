@@ -21,7 +21,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         MoveToPlayer(deltaTime);
         FacePlayer();
-        AvoidOtherAI(deltaTime);
+        //AvoidOtherAI(deltaTime);
 
         if (InAttackRange())
         {
@@ -73,8 +73,9 @@ public class EnemyChasingState : EnemyBaseState
             {
                 if (Vector3.Distance(this.stateMachine.transform.position, AI.transform.position) <= stateMachine.AIAvoidanceDistance)
                 {
-                    Vector3 direction = (stateMachine.transform.position - AI.transform.position).normalized;
-                    Move(direction, stateMachine.MovementSpeed, deltaTime);
+                    Vector3 direction = (stateMachine.transform.position - AI.transform.position);
+                    stateMachine.Agent.SetDestination(direction);
+                    Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
 
                     stateMachine.Agent.velocity = stateMachine.Controller.velocity;
                 }
