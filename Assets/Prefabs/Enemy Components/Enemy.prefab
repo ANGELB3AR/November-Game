@@ -64,6 +64,7 @@ MonoBehaviour:
   <Ragdoll>k__BackingField: {fileID: 2348327806705539098}
   <Audio>k__BackingField: {fileID: 4186788845683681956}
   <Player>k__BackingField: {fileID: 0}
+  <AITracker>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
   <AttackRange>k__BackingField: 1.5
   <SwordCombo>k__BackingField:
@@ -129,6 +130,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7fac98e0d5906a84da5849f1f1619c44, type: 3}
   - {fileID: 8300000, guid: 644e89fe570094d48b610d09325be7b2, type: 3}
   - {fileID: 8300000, guid: f2dd583fa537fd94e9f502b5dd9d0149, type: 3}
+  <AIAvoidanceDistance>k__BackingField: 2
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0

@@ -74,7 +74,9 @@ public class EnemyChasingState : EnemyBaseState
                 if (Vector3.Distance(this.stateMachine.transform.position, AI.transform.position) <= stateMachine.AIAvoidanceDistance)
                 {
                     Vector3 direction = (stateMachine.transform.position - AI.transform.position).normalized;
-                    stateMachine.Controller.Move(direction * stateMachine.MovementSpeed * deltaTime);
+                    Move(direction, stateMachine.MovementSpeed, deltaTime);
+
+                    stateMachine.Agent.velocity = stateMachine.Controller.velocity;
                 }
             }
         }

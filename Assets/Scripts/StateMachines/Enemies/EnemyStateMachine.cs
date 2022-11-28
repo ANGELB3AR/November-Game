@@ -37,6 +37,7 @@ public class EnemyStateMachine : StateMachine
     void Awake()
     {
         Player = FieldOfView.GetPlayer();
+        AITracker = FindObjectOfType<AITracker>();
     }
 
     void OnEnable()
