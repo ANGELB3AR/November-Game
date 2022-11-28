@@ -66,7 +66,7 @@ MonoBehaviour:
   <Player>k__BackingField: {fileID: 0}
   <AITracker>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
-  <AttackRange>k__BackingField: 1.5
+  <AttackRange>k__BackingField: 2.25
   <SwordCombo>k__BackingField:
   - <AnimationName>k__BackingField: HeavyAttack1
     <TransitionDuration>k__BackingField: 0.1
@@ -167,7 +167,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 3
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

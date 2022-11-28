@@ -29,9 +29,4 @@ public class AITracker : MonoBehaviour
         }
         return target.position;
     }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(target.position, radius);
-    }
 }
