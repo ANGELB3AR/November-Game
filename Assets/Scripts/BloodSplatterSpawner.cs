@@ -12,15 +12,20 @@ public class BloodSplatterSpawner : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Particle collision occurred");
         ParticlePhysicsExtensions.GetCollisionEvents(bloodParticles, other, collisionEvents);
-
+        int safeLength = bloodParticles.GetSafeCollisionEventSize();
         int count = collisionEvents.Count;
+
+        if (count < safeLength)
+        {
+            collisionEvents = new List<ParticleCollisionEvent>(safeLength);
+        }
 
         for (int i = 0; i < count; i++)
         {
             GameObject bloodStain = Instantiate(bloodDecal, collisionEvents[i].intersection, Quaternion.identity) as GameObject;
             bloodStain.transform.SetParent(bloodStainHolder, true);
+            Debug.Log($"Blood stain instantiated at {collisionEvents[i].intersection}");
         }
     }
 }

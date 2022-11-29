@@ -363,6 +363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BloodSprayEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013488956786, guid: abb9f519b142e304d9c45b56afa768bc, type: 3}
       propertyPath: m_RootOrder
       value: 1
