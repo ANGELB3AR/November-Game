@@ -12,13 +12,9 @@ public class AITracker : MonoBehaviour
     void Start()
     {
         target = FindObjectOfType<PlayerStateMachine>().transform;
-        foreach (EnemyStateMachine AI in FindObjectsOfType<EnemyStateMachine>())
-        {
-            activeAIUnits.Add(AI);
-        }
     }
 
-    public Vector3 SurroundTarget()
+    public Vector3 SurroundPlayer()
     {
         for (int i = 1; i < activeAIUnits.Count; i++)
         {
@@ -28,5 +24,17 @@ public class AITracker : MonoBehaviour
                 target.position.z + radius * Mathf.Sin(2 * Mathf.PI * i / activeAIUnits.Count));
         }
         return target.position;
+    }
+
+    public void JoinGroup(EnemyStateMachine enemy)
+    {
+        if (activeAIUnits.Contains(enemy)) { return; }
+        activeAIUnits.Add(enemy);
+    }
+
+    public void LeaveGroup(EnemyStateMachine enemy)
+    {
+        if (!activeAIUnits.Contains(enemy)) { return; }
+        activeAIUnits.Remove(enemy);
     }
 }

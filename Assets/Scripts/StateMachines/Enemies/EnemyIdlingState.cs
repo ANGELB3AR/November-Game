@@ -17,7 +17,7 @@ public class EnemyIdlingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (stateMachine.FieldOfView.CanSeePlayer())
+        if (stateMachine.FieldOfView.CanSeeTarget())
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
         }

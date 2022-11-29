@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5046677470298060593}
   - component: {fileID: 2348327806705539098}
   - component: {fileID: 4186788845683681956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7fac98e0d5906a84da5849f1f1619c44, type: 3}
   - {fileID: 8300000, guid: 644e89fe570094d48b610d09325be7b2, type: 3}
   - {fileID: 8300000, guid: f2dd583fa537fd94e9f502b5dd9d0149, type: 3}
+  <Target>k__BackingField: {fileID: 0}
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0

@@ -34,8 +34,6 @@ public class PlayerStateMachine : StateMachine
     [field:SerializeField] public float DodgeCooldown { get; private set; }
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
 
-
-
     void Awake()
     {
         MainCameraTransform = Camera.main.transform;
