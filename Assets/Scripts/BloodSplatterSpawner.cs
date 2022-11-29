@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class BloodSplatterSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject bloodDecal;
+    [SerializeField] GameObject[] bloodDecals;
     [SerializeField] ParticleSystem bloodParticles;
     [SerializeField] Transform bloodStainHolder;
 
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
+
+    void Start()
+    {
+        bloodStainHolder = FindObjectOfType<BloodStainManager>().transform;
+    }
 
     void OnParticleCollision(GameObject other)
     {
@@ -23,9 +28,8 @@ public class BloodSplatterSpawner : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            GameObject bloodStain = Instantiate(bloodDecal, collisionEvents[i].intersection, Quaternion.identity) as GameObject;
+            GameObject bloodStain = Instantiate(bloodDecals[Random.Range(0, bloodDecals.Length)], collisionEvents[i].intersection, Quaternion.identity) as GameObject;
             bloodStain.transform.SetParent(bloodStainHolder, true);
-            Debug.Log($"Blood stain instantiated at {collisionEvents[i].intersection}");
         }
     }
 }
