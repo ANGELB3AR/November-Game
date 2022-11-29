@@ -66,7 +66,7 @@ MonoBehaviour:
   <Player>k__BackingField: {fileID: 0}
   <AITracker>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
-  <AttackRange>k__BackingField: 2.25
+  <AttackRange>k__BackingField: 2
   <SwordCombo>k__BackingField:
   - <AnimationName>k__BackingField: HeavyAttack1
     <TransitionDuration>k__BackingField: 0.1
@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7fac98e0d5906a84da5849f1f1619c44, type: 3}
   - {fileID: 8300000, guid: 644e89fe570094d48b610d09325be7b2, type: 3}
   - {fileID: 8300000, guid: f2dd583fa537fd94e9f502b5dd9d0149, type: 3}
-  <Target>k__BackingField: {fileID: 0}
+  <CurrentTarget>k__BackingField: {fileID: 0}
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0

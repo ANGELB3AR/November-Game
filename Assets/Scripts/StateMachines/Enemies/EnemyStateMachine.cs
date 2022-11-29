@@ -31,7 +31,7 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public float Gravity { get; private set; }
     [field:SerializeField] public AudioClip[] ImpactSounds { get; private set; }
     [field:SerializeField] public AudioClip[] DeathSounds { get; private set; }
-    [field:SerializeField] public Health CurrentTarget { get; private set; }
+    [field: SerializeField] public Health CurrentTarget { get; private set; } = null;
 
     void Awake()
     {

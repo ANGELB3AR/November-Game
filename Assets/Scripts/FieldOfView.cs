@@ -49,17 +49,9 @@ public class FieldOfView : MonoBehaviour
         {
             //target = rangeChecks[0].transform;  // Change to foreach loop over rangeChecks when ready for enemies to attack each other
 
-            for (int i = 0; i < rangeChecks.Length; i++)
+            if (!SearchForPlayer(rangeChecks))
             {
-                if (rangeChecks[i].TryGetComponent<Health>(out Health health))
-                {
-                    if (health != this.GetComponent<Health>())
-                    {
-                        target = rangeChecks[i].transform;
-                        stateMachine.SetCurrentTarget(health);
-                        continue;
-                    }
-                }
+                SearchForOtherTargets(rangeChecks);
             }
 
             Vector3 directionToTarget = (target.position - transform.position).normalized;
@@ -90,6 +82,42 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    bool SearchForPlayer(Collider[] rangeChecks)
+    {
+        for (int i = 0; i < rangeChecks.Length; i++)
+        {
+            if (rangeChecks[i].TryGetComponent<Health>(out Health health))
+            {
+                if (rangeChecks[i].CompareTag("Player"))
+                {
+                    target = rangeChecks[i].transform;
+                    stateMachine.SetCurrentTarget(health);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    void SearchForOtherTargets(Collider[] rangeChecks)
+    {
+        for (int i = 0; i < rangeChecks.Length; i++)
+        {
+            if (rangeChecks[i].TryGetComponent<Health>(out Health health))
+            {
+                if (health != this.GetComponent<Health>())
+                {
+                    if (health.IsAlive())
+                    {
+                        target = rangeChecks[i].transform;
+                        stateMachine.SetCurrentTarget(health);
+                        continue;
+                    }
+                }
+            }
+        }
+    }
+
     void TryJoinGroup()
     {
         if (!IsPlayerTarget()) { return; }
@@ -104,6 +132,10 @@ public class FieldOfView : MonoBehaviour
 
     public bool CanSeeTarget()
     {
+        if (target == null || !target.GetComponent<Health>().IsAlive())
+        {
+            return false;
+        }
         return canSeeTarget;
     }
 
