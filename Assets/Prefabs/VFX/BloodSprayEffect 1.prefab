@@ -4603,7 +4603,7 @@ GameObject:
   - component: {fileID: 199000010223498802}
   - component: {fileID: 6665476869509982589}
   m_Layer: 0
-  m_Name: BloodSprayEffect
+  m_Name: BloodSprayEffect 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

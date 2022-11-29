@@ -6,7 +6,7 @@ public class BloodSplatterSpawner : MonoBehaviour
 {
     [SerializeField] GameObject bloodDecal;
     [SerializeField] ParticleSystem bloodParticles;
-    //[SerializeField] Transform splatHolder;
+    [SerializeField] Transform bloodStainHolder;
 
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
@@ -19,7 +19,8 @@ public class BloodSplatterSpawner : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            GameObject splat = Instantiate(bloodDecal, collisionEvents[i].intersection, Quaternion.identity) as GameObject;
+            GameObject bloodStain = Instantiate(bloodDecal, collisionEvents[i].intersection, Quaternion.identity) as GameObject;
+            bloodStain.transform.SetParent(bloodStainHolder, true);
         }
     }
 }
