@@ -17,7 +17,7 @@ public class TimeManipulator : MonoBehaviour
     IEnumerator SlowTimeEffect()
     {
         Time.timeScale = slowedTime;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = normalTime;
     }
 }
