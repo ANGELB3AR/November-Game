@@ -36,7 +36,12 @@ public class EnemyAttackingState : EnemyBaseState
     {
         if (GetNormalizedTime(stateMachine.Animator) >= 1f)
         {
-            if (stateMachine.FieldOfView.CanSeePlayer() && InAttackRange())
+            if (stateMachine.CurrentTarget == null || !stateMachine.CurrentTarget.IsAlive())
+            {
+                stateMachine.SetCurrentTarget(null);
+                stateMachine.SwitchState(new EnemyIdlingState(stateMachine));
+            }
+            else if (stateMachine.FieldOfView.CanSeeTarget() && InAttackRange())
             {
                 stateMachine.SwitchState(new EnemyAttackingState(stateMachine, attack.ComboIndex));
             }

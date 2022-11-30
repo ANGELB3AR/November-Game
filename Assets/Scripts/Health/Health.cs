@@ -49,4 +49,9 @@ public class Health : MonoBehaviour
     {
         return maxHealth;
     }
+
+    public bool IsAlive()
+    {
+        return currentHealth > 0;
+    }
 }

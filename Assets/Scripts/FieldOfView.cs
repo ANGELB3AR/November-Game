@@ -11,12 +11,17 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] LayerMask targetMask;
     [SerializeField] LayerMask obstructionMask;
 
+    Transform target;
     PlayerStateMachine player;
-    bool canSeePlayer;
+    bool canSeeTarget;
+    AITracker AITracker;
+    EnemyStateMachine stateMachine;
 
     void Awake()
     {
         player = FindObjectOfType<PlayerStateMachine>();
+        AITracker = FindObjectOfType<AITracker>();
+        stateMachine = GetComponent<EnemyStateMachine>();
     }
 
     void Start()
@@ -42,7 +47,13 @@ public class FieldOfView : MonoBehaviour
 
         if (rangeChecks.Length != 0)
         {
-            Transform target = rangeChecks[0].transform;  // Change to foreach loop over rangeChecks when ready for enemies to attack each other
+            //target = rangeChecks[0].transform;  // Change to foreach loop over rangeChecks when ready for enemies to attack each other
+
+            if (!SearchForPlayer(rangeChecks))
+            {
+                SearchForOtherTargets(rangeChecks);
+            }
+
             Vector3 directionToTarget = (target.position - transform.position).normalized;
 
             if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
@@ -51,27 +62,86 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
-                    canSeePlayer = true;
+                    canSeeTarget = true;
+                    TryJoinGroup();
+                    TryLeaveGroup();
                 }
                 else
                 {
-                    canSeePlayer = false;
+                    canSeeTarget = false;
                 }
             }
             else
             {
-                canSeePlayer = false;
+                canSeeTarget = false;
             }
         }
-        else if (canSeePlayer)
+        else if (canSeeTarget)
         {
-            canSeePlayer = false;
+            canSeeTarget = false;
         }
     }
 
-    public bool CanSeePlayer()
+    bool SearchForPlayer(Collider[] rangeChecks)
     {
-        return canSeePlayer;
+        for (int i = 0; i < rangeChecks.Length; i++)
+        {
+            if (rangeChecks[i].TryGetComponent<Health>(out Health health))
+            {
+                if (rangeChecks[i].CompareTag("Player"))
+                {
+                    target = rangeChecks[i].transform;
+                    stateMachine.SetCurrentTarget(health);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    void SearchForOtherTargets(Collider[] rangeChecks)
+    {
+        for (int i = 0; i < rangeChecks.Length; i++)
+        {
+            if (rangeChecks[i].TryGetComponent<Health>(out Health health))
+            {
+                if (health != this.GetComponent<Health>())
+                {
+                    if (health.IsAlive())
+                    {
+                        target = rangeChecks[i].transform;
+                        stateMachine.SetCurrentTarget(health);
+                        continue;
+                    }
+                }
+            }
+        }
+    }
+
+    void TryJoinGroup()
+    {
+        if (!IsPlayerTarget()) { return; }
+        AITracker.JoinGroup(GetComponent<EnemyStateMachine>());
+    }
+
+    void TryLeaveGroup()
+    {
+        if (IsPlayerTarget()) { return; }
+        AITracker.LeaveGroup(GetComponent<EnemyStateMachine>());
+    }
+
+    public bool CanSeeTarget()
+    {
+        if (target == null || !target.GetComponent<Health>().IsAlive())
+        {
+            return false;
+        }
+        return canSeeTarget;
+    }
+
+    public bool IsPlayerTarget()
+    {
+        return target.CompareTag("Player");
     }
 
     public float GetRadius()
@@ -87,5 +157,10 @@ public class FieldOfView : MonoBehaviour
     public PlayerStateMachine GetPlayer()
     {
         return player;
+    }
+
+    public Vector3 GetTargetPosition()
+    {
+        return target.position;
     }
 }

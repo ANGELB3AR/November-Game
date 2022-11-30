@@ -19,26 +19,26 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        MoveToPlayer(deltaTime);
-        FacePlayer();
+        if (stateMachine.FieldOfView.IsPlayerTarget())
+        {
+            MoveToPlayer(deltaTime);
+        }
+        else
+        {
+            MoveToTarget(deltaTime);
+        }
+        
+        FaceTarget();
+        UpdateAnimator();
 
         if (InAttackRange())
         {
             stateMachine.SwitchState(new EnemyAttackingState(stateMachine, 0));
         }
 
-        if (!stateMachine.FieldOfView.CanSeePlayer())
+        if (!stateMachine.FieldOfView.CanSeeTarget())
         {
             stateMachine.SwitchState(new EnemyIdlingState(stateMachine));
-        }
-
-        if (stateMachine.Controller.velocity == Vector3.zero)
-        {
-            stateMachine.Animator.SetFloat(ChasingSpeedHash, 0);
-        }
-        else
-        {
-            stateMachine.Animator.SetFloat(ChasingSpeedHash, 1);
         }
     }
 
@@ -48,19 +48,39 @@ public class EnemyChasingState : EnemyBaseState
         stateMachine.Agent.velocity = Vector3.zero;
     }
 
-    void MoveToPlayer(float deltaTime)
+    void MoveToTarget(float deltaTime)
     {
-        stateMachine.Agent.SetDestination(stateMachine.Player.transform.position);
+        stateMachine.Agent.SetDestination(stateMachine.FieldOfView.GetTargetPosition());
         Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
     }
 
-    void FacePlayer()
+    void MoveToPlayer(float deltaTime)
     {
-        Vector3 lookDirection = stateMachine.Player.transform.position - stateMachine.transform.position;
+        stateMachine.Agent.SetDestination(stateMachine.AITracker.SurroundPlayer());
+        Move(stateMachine.Agent.desiredVelocity.normalized, stateMachine.MovementSpeed, deltaTime);
+
+        stateMachine.Agent.velocity = stateMachine.Controller.velocity;
+    }
+
+    void FaceTarget()
+    {
+        Vector3 lookDirection = stateMachine.FieldOfView.GetTargetPosition() - stateMachine.transform.position;
         lookDirection.y = 0f;
 
         stateMachine.transform.rotation = Quaternion.LookRotation(lookDirection);
+    }
+
+    private void UpdateAnimator()
+    {
+        if (stateMachine.Controller.velocity == Vector3.zero)
+        {
+            stateMachine.Animator.SetFloat(ChasingSpeedHash, 0);
+        }
+        else
+        {
+            stateMachine.Animator.SetFloat(ChasingSpeedHash, 1);
+        }
     }
 }

@@ -84,26 +84,21 @@ MonoBehaviour:
     <ComboIndex>k__BackingField: -1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: 7a108dbffe6fb524489455d4d3ba7454, type: 3}
   <SpearCombo>k__BackingField:
-  - <AnimationName>k__BackingField: SpearStab
+  - <AnimationName>k__BackingField: combo_06_01
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 1
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
-  - <AnimationName>k__BackingField: SpearStab
+  - <AnimationName>k__BackingField: combo_06_02
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: 2
     <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
-  - <AnimationName>k__BackingField: SpearStab
-    <TransitionDuration>k__BackingField: 0.1
-    <ComboAttackTime>k__BackingField: 0.6
-    <ComboIndex>k__BackingField: 3
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
-  - <AnimationName>k__BackingField: SpearStab
+  - <AnimationName>k__BackingField: combo_06_03
     <TransitionDuration>k__BackingField: 0.1
     <ComboAttackTime>k__BackingField: 0.6
     <ComboIndex>k__BackingField: -1
-    <SoundEffect>k__BackingField: {fileID: 8300000, guid: 14e838537e8b6c94aa6a05208b0c700c, type: 3}
+    <SoundEffect>k__BackingField: {fileID: 8300000, guid: c46b1be081196a84ebc6fe0c4560c691, type: 3}
   <HeavyCombo>k__BackingField:
   - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
@@ -130,6 +125,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7fac98e0d5906a84da5849f1f1619c44, type: 3}
   - {fileID: 8300000, guid: 644e89fe570094d48b610d09325be7b2, type: 3}
   - {fileID: 8300000, guid: f2dd583fa537fd94e9f502b5dd9d0149, type: 3}
+  <DodgeDuration>k__BackingField: 0.5
+  <DodgeDistance>k__BackingField: 3
+  <DodgeCooldown>k__BackingField: 2
 --- !u!114 &5101429304421845981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,11 +597,11 @@ PrefabInstance:
       objectReference: {fileID: 5105635639105519711}
     - target: {fileID: 3311896813650217628, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000024578185
+      value: 0.000000008760253
       objectReference: {fileID: 0}
     - target: {fileID: 3311896813650217628, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000008047209
+      value: -0.0000000028812792
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814151608950, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
@@ -619,11 +617,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814346342683, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016225385
+      value: 4.3655746e-11
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814346342683, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000005647962
+      value: -1.4551915e-11
       objectReference: {fileID: 0}
     - target: {fileID: 3914402488373670646, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_Name
@@ -631,11 +629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000047187714
+      value: -0.00000032904532
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000047683716
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 4371655202031251824, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
@@ -671,15 +669,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1404688
+      value: 0.14046882
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000024430664
+      value: 0.000000017035779
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000034661123
+      value: -0.00000000241696
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}

@@ -19,6 +19,7 @@ public class EnemyStateMachine : StateMachine
 
     // External References
     [field:SerializeField] public PlayerStateMachine Player { get; private set; }
+    [field:SerializeField] public AITracker AITracker { get; private set; }
 
     // Variable References
     [field:SerializeField] public float MovementSpeed { get; private set; }
@@ -28,13 +29,13 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public Attack[] HeavyCombo { get; private set; }
     [field:SerializeField] public float ImpactDuration { get; private set; }
     [field:SerializeField] public float Gravity { get; private set; }
-    [field: SerializeField] public AudioClip[] ImpactSounds { get; private set; }
-    [field: SerializeField] public AudioClip[] DeathSounds { get; private set; }
-
+    [field:SerializeField] public AudioClip[] ImpactSounds { get; private set; }
+    [field:SerializeField] public AudioClip[] DeathSounds { get; private set; }
+    [field: SerializeField] public Health CurrentTarget { get; private set; } = null;
 
     void Awake()
     {
-        Player = FieldOfView.GetPlayer();
+        
     }
 
     void OnEnable()
@@ -45,6 +46,9 @@ public class EnemyStateMachine : StateMachine
 
     void Start()
     {
+        Player = FieldOfView.GetPlayer();
+        AITracker = FindObjectOfType<AITracker>();
+
         SwitchState(new EnemyIdlingState(this));
 
         Agent.updatePosition = false;
@@ -72,5 +76,10 @@ public class EnemyStateMachine : StateMachine
         Animator.enabled = false;
         Weapon.DropWeapon();
         Audio.PlayOneShot(DeathSounds[UnityEngine.Random.Range(0, 2)]);
+    }
+
+    public void SetCurrentTarget(Health target)
+    {
+        CurrentTarget = target;
     }
 }

@@ -13,7 +13,7 @@ public abstract class EnemyBaseState : State
 
     public bool InAttackRange()
     {
-        float distanceToPlayer = Vector3.Distance(stateMachine.Player.transform.position, stateMachine.transform.position);
+        float distanceToPlayer = Vector3.Distance(stateMachine.FieldOfView.GetTargetPosition(), stateMachine.transform.position);
         return distanceToPlayer <= stateMachine.AttackRange;
     }
 
