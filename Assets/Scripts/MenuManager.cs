@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject DebugMenuCanvas;
+    GameObject DebugMenuCanvas;
 
     void Awake()
     {
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+
+        DebugMenuCanvas = FindObjectOfType<DebugMenu>(true).gameObject;
     }
 
     void OnDestroy()

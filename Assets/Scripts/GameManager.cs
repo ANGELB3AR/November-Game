@@ -8,6 +8,18 @@ public class GameManager : Singleton<GameManager>
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
 
+    [SerializeField] InputReader InputReader;
+
+    void Start()
+    {
+        InputReader.PauseEvent += OnPause;
+    }
+
+    void OnDestroy()
+    {
+        InputReader.PauseEvent -= OnPause;
+    }
+
     public void UpdateGameState(GameState newState)
     {
         State = newState;
@@ -38,5 +50,17 @@ public class GameManager : Singleton<GameManager>
     void HandleGamePaused()
     {
         Time.timeScale = 0f;
+    }
+
+    void OnPause()
+    {
+        if (State == GameState.Playing)
+        {
+            UpdateGameState(GameState.Paused);
+        }
+        else
+        {
+            UpdateGameState(GameState.Playing);
+        }
     }
 }
