@@ -14,8 +14,10 @@ public class GameManager : Singleton<GameManager>
         switch(newState)
         {
             case GameState.Playing:
+                HandleGamePlaying();
                 break;
             case GameState.Paused:
+                HandleGamePaused();
                 break;
         }
 
@@ -26,5 +28,15 @@ public class GameManager : Singleton<GameManager>
     {
         Playing,
         Paused
+    }
+
+    void HandleGamePlaying()
+    {
+        Time.timeScale = 1f;
+    }
+
+    void HandleGamePaused()
+    {
+        Time.timeScale = 0f;
     }
 }
