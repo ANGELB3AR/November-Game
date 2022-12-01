@@ -11,6 +11,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action CycleTargetRightEvent;
     public event Action AttackEvent;
     public event Action DodgeEvent;
+    public event Action PauseEvent;
 
     public Vector2 MovementValue { get; private set; }
 
@@ -63,5 +64,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
         DodgeEvent?.Invoke();
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        PauseEvent?.Invoke();
     }
 }
