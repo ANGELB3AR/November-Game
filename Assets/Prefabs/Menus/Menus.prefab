@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6739645774657550631, guid: 4378ee83af6acb943a843c8d1c572bf0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4378ee83af6acb943a843c8d1c572bf0, type: 3}
 --- !u!4 &4387397606509153666 stripped

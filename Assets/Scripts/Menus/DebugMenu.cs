@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebugMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    PlayerStateMachine Player;
+
+    private void Awake()
     {
-        
+        Player = FindObjectOfType<PlayerStateMachine>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RestartGame()
     {
-        
+        SceneManager.LoadScene(0);
+    }
+
+    public void EquipSword()
+    {
+        Player.Weapon.UnequipWeapon();
+        Player.Weapon.EquipWeapon(Resources.Load<WeaponConfig>("Test Sword"));
+    }
+
+    public void EquipSpear()
+    {
+        Player.Weapon.UnequipWeapon();
+        Player.Weapon.EquipWeapon(Resources.Load<WeaponConfig>("Test Spear"));
+    }
+
+    public void EquipHeavy()
+    {
+        Player.Weapon.UnequipWeapon();
+        Player.Weapon.EquipWeapon(Resources.Load<WeaponConfig>("Test Heavy"));
     }
 }

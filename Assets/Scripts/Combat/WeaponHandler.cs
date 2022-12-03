@@ -10,6 +10,11 @@ public class WeaponHandler : MonoBehaviour
 
     [SerializeField] Transform weaponTransform;
 
+    internal void EquipWeapon(UnityEngine.Object @object)
+    {
+        throw new NotImplementedException();
+    }
+
     void Start()
     {
         EquipWeapon(CurrentWeapon);
@@ -17,6 +22,7 @@ public class WeaponHandler : MonoBehaviour
 
     public void EquipWeapon(WeaponConfig weapon)
     {
+        CurrentWeapon = weapon;
         Instantiate(CurrentWeapon.weaponPrefab, weaponTransform);
         EquippedPrefab = GetComponentInChildren<Weapon>();
         EquippedPrefab.SetDamageStats(CurrentWeapon.baseDamage, CurrentWeapon.percentageBonusDamage);
@@ -26,6 +32,8 @@ public class WeaponHandler : MonoBehaviour
     public void UnequipWeapon()
     {
         CurrentWeapon = null;
+        DropWeapon();
+        EquippedPrefab = null;
     }
 
     public void EnableWeaponColliders()
