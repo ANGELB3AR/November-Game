@@ -31,7 +31,8 @@ public class PlayerAttackingState : PlayerBaseState
 
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
-        stateMachine.Weapon.ActivateWeaponTrail(true);
+        stateMachine.Weapon.EquippedPrefab.PlaySlashEffect();
+        //stateMachine.Weapon.ActivateWeaponTrail(true);
 
         stateMachine.Audio.PlayOneShot(attack.SoundEffect);
     }
@@ -54,7 +55,8 @@ public class PlayerAttackingState : PlayerBaseState
 
         stateMachine.Weapon.DisableWeaponColliders();
 
-        stateMachine.Weapon.ActivateWeaponTrail(false);
+        //stateMachine.Weapon.GetComponent<ParticleSystem>().Stop();
+        //stateMachine.Weapon.ActivateWeaponTrail(false);
     }
 
     void ApplyForwardMovement(float deltaTime)

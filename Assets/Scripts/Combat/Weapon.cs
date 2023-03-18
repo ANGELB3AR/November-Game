@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour, IDamageModifier
     [SerializeField] TimeManipulator time = null;
     [SerializeField] ParticleSystem bloodSplatter;
     [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] ParticleSystem slashEffect;
     
     DamageCounter damageCounter;
 
@@ -69,6 +70,11 @@ public class Weapon : MonoBehaviour, IDamageModifier
     public void ActivateWeaponTrail(bool status)
     {
         trail.emitting = status;
+    }
+
+    public void PlaySlashEffect()
+    {
+        slashEffect.Play();
     }
 
 
