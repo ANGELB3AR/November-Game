@@ -27,7 +27,7 @@ public class EnemyAttackingState : EnemyBaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
-        stateMachine.Weapon.ActivateWeaponTrail(true);
+        stateMachine.Weapon.EquippedPrefab.PlaySlashEffect();
 
         stateMachine.Audio.PlayOneShot(attack.SoundEffect);
     }
@@ -55,6 +55,5 @@ public class EnemyAttackingState : EnemyBaseState
     public override void Exit()
     {
         stateMachine.Weapon.DisableWeaponColliders();
-        stateMachine.Weapon.ActivateWeaponTrail(false);
     }
 }
