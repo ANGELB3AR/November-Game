@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6592511871523704997}
   - component: {fileID: 6218842498229546616}
   - component: {fileID: -8467976504225978743}
+  - component: {fileID: -5084117077045917490}
   m_Layer: 0
   m_Name: TestSword
   m_TagString: Untagged
@@ -213,6 +214,22 @@ MonoBehaviour:
   m_UseImpactDirection: 0
   m_ScaleImpactWithMass: 0
   m_ScaleImpactWithSpeed: 0
+--- !u!114 &-5084117077045917490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410139246288411443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1725927511597834561
 PrefabInstance:
   m_ObjectHideFlags: 0
