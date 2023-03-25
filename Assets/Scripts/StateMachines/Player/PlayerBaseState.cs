@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 public abstract class PlayerBaseState : State
 {
@@ -27,6 +28,12 @@ public abstract class PlayerBaseState : State
     }
 
     protected void Move(Vector3 direction, float speed, float deltaTime)
+    {
+        MoveServerRpc(direction, speed, deltaTime);
+    }
+
+    [ServerRpc(RequireOwnership = true)]
+    void MoveServerRpc(Vector3 direction, float speed, float deltaTime)
     {
         if (!stateMachine.Controller.isGrounded)
         {
