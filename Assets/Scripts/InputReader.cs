@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 
-public class InputReader : MonoBehaviour, Controls.IPlayerActions
+public class InputReader : Singleton<InputReader>, Controls.IPlayerActions
 {
     public event Action TargetEvent;
     public event Action CycleTargetLeftEvent;
