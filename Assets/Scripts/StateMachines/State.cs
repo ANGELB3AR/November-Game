@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public abstract class State : NetworkBehaviour
+public abstract class State
 {
     public abstract void Enter();
     public abstract void Tick(float deltaTime);

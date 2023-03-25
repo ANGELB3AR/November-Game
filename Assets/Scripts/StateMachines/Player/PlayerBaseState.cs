@@ -28,8 +28,6 @@ public abstract class PlayerBaseState : State
 
     protected void Move(Vector3 direction, float speed, float deltaTime)
     {
-        if (!IsOwner) { return; }
-
         if (!stateMachine.Controller.isGrounded)
         {
             direction = ApplyGravity(direction, deltaTime);
