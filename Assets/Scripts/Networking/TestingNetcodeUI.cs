@@ -13,12 +13,14 @@ public class TestingNetcodeUI : MonoBehaviour
 
     public void StartHost()
     {
+        Debug.Log("STARTING HOST");
         NetworkManager.Singleton.StartHost();
         Hide();
     }
 
     public void StartClient()
     {
+        Debug.Log("STARTING CLIENT");
         NetworkManager.Singleton.StartClient();
         Hide();
     }
