@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DebugMenu : MonoBehaviour
 {
-    PlayerStateMachine Player;
+    PlayerController Player;
 
     private void Awake()
     {
-        Player = FindObjectOfType<PlayerStateMachine>();
+        Player = FindObjectOfType<PlayerController>();
     }
 
     public void RestartGame()

@@ -5,9 +5,9 @@ using Unity.Netcode;
 
 public abstract class PlayerBaseState : State
 {
-    protected PlayerStateMachine stateMachine;
+    protected PlayerController stateMachine;
 
-    public PlayerBaseState(PlayerStateMachine stateMachine)
+    public PlayerBaseState(PlayerController stateMachine)
     {
         this.stateMachine = stateMachine;
     }

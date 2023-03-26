@@ -11,7 +11,7 @@ public class PlayerTargetingState : PlayerBaseState
 
     const float crossFadeDuration = 0.1f;
 
-    public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public PlayerTargetingState(PlayerController stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {

@@ -8,7 +8,7 @@ public class PlayerAttackingState : PlayerBaseState
     Attack attack;
     bool shouldMove = true;
 
-    public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
+    public PlayerAttackingState(PlayerController stateMachine, int attackIndex) : base(stateMachine)
     {
        if (stateMachine.Weapon.CurrentWeapon.weaponClass == WeaponClass.Sword)
         {

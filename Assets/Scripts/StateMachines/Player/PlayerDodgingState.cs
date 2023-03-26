@@ -12,7 +12,7 @@ public class PlayerDodgingState : PlayerBaseState
     Vector2 dodgingDirection;
     float remainingDodgeTime;
 
-    public PlayerDodgingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public PlayerDodgingState(PlayerController stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {

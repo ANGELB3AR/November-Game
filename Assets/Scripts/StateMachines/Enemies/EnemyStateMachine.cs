@@ -18,7 +18,7 @@ public class EnemyStateMachine : StateMachine
     [field:SerializeField] public AudioSource Audio { get; private set; }
 
     // External References
-    [field:SerializeField] public PlayerStateMachine Player { get; private set; }
+    [field:SerializeField] public PlayerController Player { get; private set; }
     [field:SerializeField] public AITracker AITracker { get; private set; }
 
     // Variable References

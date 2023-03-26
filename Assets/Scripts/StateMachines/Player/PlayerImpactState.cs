@@ -9,7 +9,7 @@ public class PlayerImpactState : PlayerBaseState
     const float crossFadeDuration = 0.1f;
     float duration;
 
-    public PlayerImpactState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public PlayerImpactState(PlayerController stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {

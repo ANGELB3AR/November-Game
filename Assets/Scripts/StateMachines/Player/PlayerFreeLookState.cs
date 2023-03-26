@@ -10,7 +10,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     const float crossFadeDuration = 0.1f;
 
-    public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public PlayerFreeLookState(PlayerController stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {

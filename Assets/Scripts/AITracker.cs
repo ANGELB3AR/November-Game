@@ -11,7 +11,7 @@ public class AITracker : MonoBehaviour
 
     void Start()
     {
-        target = FindObjectOfType<PlayerStateMachine>().transform;
+        target = FindObjectOfType<PlayerController>().transform;
     }
 
     public Vector3 SurroundPlayer()

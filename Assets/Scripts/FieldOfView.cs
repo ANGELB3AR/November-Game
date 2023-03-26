@@ -12,14 +12,14 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] LayerMask obstructionMask;
 
     Transform target;
-    PlayerStateMachine player;
+    PlayerController player;
     bool canSeeTarget;
     AITracker AITracker;
     EnemyStateMachine stateMachine;
 
     void Awake()
     {
-        player = FindObjectOfType<PlayerStateMachine>();
+        player = FindObjectOfType<PlayerController>();
         AITracker = FindObjectOfType<AITracker>();
         stateMachine = GetComponent<EnemyStateMachine>();
     }
@@ -154,7 +154,7 @@ public class FieldOfView : MonoBehaviour
         return angle;
     }
 
-    public PlayerStateMachine GetPlayer()
+    public PlayerController GetPlayer()
     {
         return player;
     }
