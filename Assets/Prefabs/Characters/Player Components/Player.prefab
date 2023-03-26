@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5101429304421845971}
   - component: {fileID: 5101429304421845980}
+  - component: {fileID: 5101429304421845981}
   - component: {fileID: 5101429304421845970}
   - component: {fileID: 7173509130001809294}
   - component: {fileID: 1172188316}
@@ -54,6 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56672bc86ca64de42a453c3175988d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InputReader>k__BackingField: {fileID: 5101429304421845981}
   <Controller>k__BackingField: {fileID: 5101429304421845970}
   <Animator>k__BackingField: {fileID: 5159353757702122117}
   <Targeter>k__BackingField: {fileID: 2715364617380420000}
@@ -62,7 +64,6 @@ MonoBehaviour:
   <Damage>k__BackingField: {fileID: 1172188316}
   <Ragdoll>k__BackingField: {fileID: 1310673178}
   <Audio>k__BackingField: {fileID: 73856855}
-  <InputReader>k__BackingField: {fileID: 0}
   <MainCameraTransform>k__BackingField: {fileID: 0}
   <FreeLookMovementSpeed>k__BackingField: 10
   <TargetingMovementSpeed>k__BackingField: 5
@@ -128,6 +129,18 @@ MonoBehaviour:
   <DodgeDuration>k__BackingField: 0.5
   <DodgeDistance>k__BackingField: 3
   <DodgeCooldown>k__BackingField: 2
+--- !u!114 &5101429304421845981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101429304421845968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193733f7648e0e244901d3af19185c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &5101429304421845970
 CharacterController:
   m_ObjectHideFlags: 0
@@ -601,11 +614,11 @@ PrefabInstance:
       objectReference: {fileID: 5105635639105519711}
     - target: {fileID: 3311896813650217628, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008105417
+      value: 0.000000008381903
       objectReference: {fileID: 0}
     - target: {fileID: 3311896813650217628, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000026666385
+      value: -0.000000002755769
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814151608950, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.w
@@ -625,11 +638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814346342683, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001625449
+      value: -1.4551915e-11
       objectReference: {fileID: 0}
     - target: {fileID: 3311896814346342683, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000005657057
+      value: 3.637979e-12
       objectReference: {fileID: 0}
     - target: {fileID: 3914402488373670646, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_Name
@@ -681,11 +694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017035779
+      value: -0.000000017035784
       objectReference: {fileID: 0}
     - target: {fileID: 8345253591766448345, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000000241696
+      value: 0.0000000024169609
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc292acc7c29cc4dabebcad2d23d956, type: 3}
